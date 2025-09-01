@@ -6,7 +6,7 @@
         <title>Crud + Layout</title>
         <link rel="stylesheet" href="/clinicApp/global.css" />
         <!-- css da página -->
-        <link rel="stylesheet" href="#" />
+        <link rel="stylesheet" href="paciente.css" />
     </head>
 
     <body>
@@ -76,10 +76,68 @@
                             </ul>
                         </div>
                     </nav>
+
+                    <div class="section-main-text">
+                        <h1>Pacientes</h1>
+                        <p>Nesta seção você pode gerenciar todos os pacientes através da integração.</p>
+                        <div class="main-button">
+                            <button class="button main-button-border">A descrever</button>
+                            <button class="button main-button-border">Liberado</button>
+                            <button class="button main-button-border">Entregue</button>
+                        </div>
+                    </div>
+                    <div class="conteudo">
+                        <form id="formLaudo">
+                            <fieldset>
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" placeholder="Nome" required />
+                            </fieldset>
+                            <fieldset>
+                                <label for="telefone">Telefone</label>
+                                <input type="text" id="telefone" placeholder="Telefone" required />
+                            </fieldset>
+                            <fieldset>
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" placeholder="Cidade" required />
+                            </fieldset>
+                            <fieldset>
+                                <label for="estado">Estado</label>
+                                <input type="text" id="estado" placeholder="Estado" required />
+                            </fieldset>
+                            <fieldset>
+                                <label for="ultimoAtend">Último Atendimento</label>
+                                <input type="date" id="ultimoAtend" required />
+                            </fieldset>
+                            <fieldset>
+                                <label for="proximoAtend">Próximo atendimento</label>
+                                <input type="date" id="proximoAtend" required />
+                            </fieldset>
+                            <button type="submit">Adicionar</button>
+                        </form>
+
+                        <!-- Container para scroll horizontal da tabela -->
+                        <div class="table-container">
+                            <table id="laudoTable">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Telefone</th>
+                                        <th>Cidade</th>
+                                        <th>Estado</th>
+                                        <th>Último atendimento</th>
+                                        <th>Próximo atendimento</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
                 </section>
             </div>
         </main>
         <!-- script da página -->
-        <script src="#"></script>
+        <script src="paciente.js"></script>
+        <script src="/clinicApp/scriptGlobal.js"></script>
     </body>
 </html>

@@ -1,53 +1,47 @@
-const form = document.getElementById("formLaudo");
-const tbody = document.querySelector("#laudoTable tbody");
-const button = document.querySelectorAll(".button");
+document.addEventListener("DOMContentLoaded", () => {
+    const tabelaPacientes = document.getElementById("pacientes-tabela");
+    let pacientes = JSON.parse(localStorage.getItem("pacientes")) || [];
 
-// Função para adicionar linha
-function adicionarLinhaNaTabela(item) {
-    const tr = document.createElement("tr");
-    tr.innerHTML = `
-    <td>${item.nome}</td>
-    <td>${item.telefone}</td>
-    <td>${item.cidade}</td>
-    <td>${item.estado}</td>
-    <td>${item.ultimoAtend}</td>
-    <td>${item.proximoAtend}</td>
-    <td><button>...</button></td>
-  `;
-    tbody.appendChild(tr);
-}
+    const atualizarLista = () => {
+        if (!tabelaPacientes) return;
+        const tbody = tabelaPacientes.querySelector("tbody");
+        tbody.innerHTML = "";
 
-// Carregar dados salvos
-function carregarDadosSalvos() {
-    const dados = JSON.parse(localStorage.getItem("pacientes")) || [];
-    dados.forEach(adicionarLinhaNaTabela);
-}
+        pacientes.forEach((paciente, index) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td data-label="Nome">${paciente.nome}</td>
+                <td data-label="Telefone ou Celular">${paciente.celular || "-"}</td>
+                <td data-label="Cidade">${paciente.cidade || "-"}</td>
+                <td data-label="Estado">${paciente.estado || "-"}</td>
+                <td data-label="Ações">
+                    <button class="btn btn-edit" data-id="${paciente.id}">Editar</button>
+                    <button class="btn btn-delete" data-index="${index}">Excluir</button>
+                </td>
+            `;
+            tbody.appendChild(row);
+        });
 
-// Salvar novo item
-function salvarItem(item) {
-    const dados = JSON.parse(localStorage.getItem("pacientes")) || [];
-    dados.push(item);
-    localStorage.setItem("pacientes", JSON.stringify(dados));
-}
+        // Adiciona event listeners para os botões "Editar"
+        document.querySelectorAll(".btn-edit").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                const id = e.target.dataset.id;
+                window.location.href = `addPaciente/addPacient.html?id=${id}`;
+            });
+        });
 
-// Evento de envio do formulário
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const item = {
-        nome: document.getElementById("nome").value,
-        telefone: document.getElementById("telefone").value,
-        cidade: document.getElementById("cidade").value,
-        estado: document.getElementById("estado").value,
-        ultimoAtend: document.getElementById("ultimoAtend").value,
-        proximoAtend: document.getElementById("proximoAtend").value,
-        acao: "...",
+        // Adiciona event listeners para os botões "Excluir"
+        document.querySelectorAll(".btn-delete").forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+                const index = e.target.dataset.index;
+                if (confirm("Tem certeza que deseja excluir este paciente?")) {
+                    pacientes.splice(index, 1);
+                    localStorage.setItem("pacientes", JSON.stringify(pacientes));
+                    atualizarLista();
+                }
+            });
+        });
     };
 
-    adicionarLinhaNaTabela(item);
-    salvarItem(item);
-    form.reset();
+    atualizarLista();
 });
-
-// Carregar ao abrir
-window.addEventListener("DOMContentLoaded", carregarDadosSalvos);

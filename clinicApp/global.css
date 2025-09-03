@@ -13,29 +13,73 @@
     padding: 10px 13px 5px 13px;
 }
 
-.icon-sidebar:hover {
-    background-color: #f1f1f1;
+#music {
+    background: none;
 }
 
 .sidebar {
     padding-top: 1.25rem;
+    padding-top: 1rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    max-width: 5vw;
-    max-height: 100vh;
-    height: 100vh;
+    max-width: 10vw;
+    max-height: 98vh;
+    height: 100%;
     background-color: white;
     width: 100%;
-    box-shadow: 15px 0px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 9px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.main-contain {
+    margin: 1rem 4rem;
+}
+
+.perfil-medico-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.perfil-medico-sidebar p {
+    font-size: 12px;
+}
+
+.div-sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    justify-content: space-between;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(12, 54, 70);
+    flex-wrap: wrap;
+}
+
+.abas {
+
 }
 
 .sidebar ul li {
     text-align: center;
     padding: 10px 0px;
     list-style: none;
+    border: 2px solid transparent;
+    border-radius: 3%;
+    padding: 0.7rem 0.8rem;
+}
+
+.sidebar ul li:hover {
+    border: 2px solid rgb(44, 185, 228);
+    background-color: rgb(44, 185, 228);
 }
 
 .sidebar * {
@@ -68,7 +112,8 @@ img {
 }
 
 .section-main {
-    max-width: 95vw;
+    max-width: 90vw;
+    margin-left: 10vw;
     width: 100%;
     background-color: #f3f0f0;
 }
@@ -96,7 +141,7 @@ img {
 .nav {
     display: flex;
     justify-content: space-between;
-    background-color: #fafafa;
+    background-color: #eaeaea;
     align-items: center;
     padding: 20px;
 }
@@ -275,7 +320,14 @@ img {
 /* Media query para tablets */
 @media (max-width: 1024px) and (min-width: 769px) {
     .sidebar {
-        max-width: 8vw;
+        max-width:12vw;
+        padding: 0.3rem;
+    }
+
+    .sidebar a {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
     }
 
     .search-input {
@@ -368,10 +420,19 @@ img {
 @media (min-width: 769px) {
     .sidebar {
         display: flex;
-        position: static;
+        position: fixed;
         left: auto;
         transform: none;
         transition: none;
+    }
+
+    .sidebar a {
+        justify-content: center;
+        flex-direction: column  ;
+    }
+
+    .perfil-medico-sidebar {
+        padding-bottom: 1rem;
     }
 
     .hamburger-btn {
@@ -387,4 +448,10 @@ img {
         max-width: 95vw;
         width: 100%;
     }
+}
+
+.logo1 {
+    display: flex;
+    justify-content: center;
+    padding: 1.2rem 0px;
 }

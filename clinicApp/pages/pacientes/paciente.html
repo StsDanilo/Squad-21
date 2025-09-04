@@ -57,11 +57,20 @@
                 <section class="section-main">
                     <nav class="nav" role="banner">
                         <div class="div-search">
-                            <input type="text" class="search-input" placeholder="Buscar paciente" aria-label="Campo de busca" />
-                            <button class="search-button" aria-label="Buscar">
-                                <img src="/clinicApp/assets/layoutIcons/icons8-pesquisar.svg" alt="Buscar" />
-                            </button>
-                        </div>
+    <input type="text" id="search-input" class="search-input" placeholder="Buscar paciente" aria-label="Campo de busca" />
+    <select id="filter-type" class="filter-select" aria-label="Selecionar filtro">
+        <option value="geral">Geral</option>
+        <option value="nome">Nome</option>
+        <option value="celular">Telefone</option>
+        <option value="cidade">Cidade</option>
+        <option value="estado">Estado</option>
+        <option value="convenio">Convênio</option>
+    </select>
+    <button id="search-button" class="search-button" aria-label="Buscar">
+        <img src="/clinicApp/assets/layoutIcons/icons8-pesquisar.svg" alt="Buscar" />
+    </button>
+</div>
+
                         <div>
                             <ul class="icon-lista">
                                 <li>

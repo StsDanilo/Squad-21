@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <script src="addPaciente.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Paciente</title>
-    <link rel="stylesheet" href="addPacient.css">
+    <link rel="stylesheet" href="/clinicApp/pages/pacientes/addPaciente/addPacient.css">
 </head>
+
 <body>
     <main>
         <div class="flex">
             <section class="section-main">
                 <nav class="nav">
-                    </nav>
+                </nav>
 
                 <div class="full-page-form-container">
                     <div class="form-card">
                         <h2>Dados do Paciente</h2>
                         <form id="cadastro-form">
                             <div class="form-grid">
-                                <div class="form-group"><label for="nome">Nome *</label><input type="text" id="nome" required></div>
-                                <div class="form-group"><label for="nomeSocial">Nome Social</label><input type="text" id="nomeSocial"></div>
-                                <div class="form-group"><label for="cpf">CPF</label><input type="number" inputmode="numeric" pattern="\d*" id="cpf"></div>
-                                <div class="form-group"><label for="rg">RG</label><input type="number" inputmode="numeric" pattern="\d*" id="rg"></div>
+                                <div class="form-group"><label for="nome">Nome *</label><input type="text" id="nome"
+                                        required></div>
+                                <div class="form-group"><label for="nomeSocial">Nome Social</label><input type="text"
+                                        id="nomeSocial"></div>
+                                <div class="form-group"><label for="cpf">CPF</label><input type="text" id="cpf"></div>
+                                <div class="form-group"><label for="rg">RG</label><input type="text" id="rg"></div>
                                 <div class="form-group">
                                     <label for="outrosDocs">Outros documentos de identidade</label>
                                     <select id="outrosDocs">
@@ -31,7 +35,8 @@
                                         <option value="CNH">CNH</option>
                                     </select>
                                 </div>
-                                <div class="form-group"><label for="numDoc">Número do documento</label><input type="number" inputmode="numeric" pattern="\d*" id="numDoc" placeholder="Número do documento"></div>
+                                <div class="form-group"><label for="numDoc">Número do documento</label><input
+                                        type="text" id="numDoc" placeholder="Número do documento"></div>
                                 <div class="form-group">
                                     <label for="sexo">Sexo</label>
                                     <select id="sexo" name="sexo">
@@ -40,7 +45,8 @@
                                         <option value="Feminino">Feminino</option>
                                     </select>
                                 </div>
-                                <div class="form-group"><label for="dataNascimento">Data de Nascimento *</label><input type="date" id="dataNascimento" required></div>
+                                <div class="form-group"><label for="dataNascimento">Data de Nascimento *</label><input
+                                        type="date" id="dataNascimento" required></div>
                                 <div class="form-group">
                                     <label for="etnia">Etnia</label>
                                     <select id="etnia">
@@ -63,7 +69,8 @@
                                         <option value="indigena">Indígena</option>
                                     </select>
                                 </div>
-                                <div class="form-group"><label for="naturalidade">Naturalidade</label><input type="text" id="naturalidade"></div>
+                                <div class="form-group"><label for="naturalidade">Naturalidade</label><input type="text"
+                                        id="naturalidade"></div>
                                 <div class="form-group">
                                     <label for="nacionalidade">Nacionalidade</label>
                                     <select id="nacionalidade">
@@ -74,7 +81,8 @@
                                         <option value="outra">Outra</option>
                                     </select>
                                 </div>
-                                <div class="form-group"><label for="profissao">Profissão</label><input type="text" id="profissao"></div>
+                                <div class="form-group"><label for="profissao">Profissão</label><input type="text"
+                                        id="profissao"></div>
                                 <div class="form-group">
                                     <label for="estadoCivil">Estado Civil</label>
                                     <select id="estadoCivil">
@@ -86,66 +94,81 @@
                                         <option value="separado">Separado(a)</option>
                                     </select>
                                 </div>
-                                <div class="form-group"><label for="nomeMae">Nome da mãe</label><input type="text" id="nomeMae"></div>
-                                <div class="form-group"><label for="profissaoMae">Profissão da mãe</label><input type="text" id="profissaoMae"></div>
-                                <div class="form-group"><label for="nomePai">Nome do pai</label><input type="text" id="nomePai"></div>
-                                <div class="form-group"><label for="profissaoPai">Profissão do pai</label><input type="text" id="profissaoPai"></div>
-                                <div class="form-group"><label for="nomeResponsavel">Nome do responsável</label><input type="text" id="nomeResponsavel"></div>
-                                <div class="form-group"><label for="cpfResponsavel">CPF do responsável</label><input type="text" id="cpfResponsavel"></div>
-                                <div class="form-group"><label for="nomeEsposo">Nome do esposo(a)</label><input type="text" id="nomeEsposo"></div>
+                                <div class="form-group"><label for="nomeMae">Nome da mãe</label><input type="text"
+                                        id="nomeMae"></div>
+                                <div class="form-group"><label for="profissaoMae">Profissão da mãe</label><input
+                                        type="text" id="profissaoMae"></div>
+                                <div class="form-group"><label for="nomePai">Nome do pai</label><input type="text"
+                                        id="nomePai"></div>
+                                <div class="form-group"><label for="profissaoPai">Profissão do pai</label><input
+                                        type="text" id="profissaoPai"></div>
+                                <div class="form-group"><label for="nomeResponsavel">Nome do responsável</label><input
+                                        type="text" id="nomeResponsavel"></div>
+                                <div class="form-group"><label for="cpfResponsavel">CPF do responsável</label><input
+                                        type="text" id="cpfResponsavel"></div>
+                                <div class="form-group"><label for="nomeEsposo">Nome do esposo(a)</label><input
+                                        type="text" id="nomeEsposo"></div>
                             </div>
 
                             <div class="section-divider">Endereço</div>
                             <div class="form-grid">
                                 <div class="form-group"><label for="cep">CEP</label><input type="text" id="cep"></div>
-                                <div class="form-group span-2"><label for="endereco">Endereço</label><input type="text" id="endereco"></div>
-                                <div class="form-group"><label for="numero">Número</label><input type="text" id="numero"></div>
-                                <div class="form-group"><label for="complemento">Complemento</label><input type="text" id="complemento"></div>
-                                <div class="form-group"><label for="bairro">Bairro</label><input type="text" id="bairro"></div>
-                                <div class="form-group"><label for="cidade">Cidade</label><input type="text" id="cidade"></div>
+                                <div class="form-group span-2"><label for="endereco">Endereço</label><input type="text"
+                                        id="endereco"></div>
+                                <div class="form-group"><label for="numero">Número</label><input type="text"
+                                        id="numero"></div>
+                                <div class="form-group"><label for="complemento">Complemento</label><input type="text"
+                                        id="complemento"></div>
+                                <div class="form-group"><label for="bairro">Bairro</label><input type="text"
+                                        id="bairro"></div>
+                                <div class="form-group"><label for="cidade">Cidade</label><input type="text"
+                                        id="cidade"></div>
                                 <div class="form-group">
                                     <label for="estado">Estado
-                                    <label>
-                                    <select id="estado">
-                                        <option value="">Selecione</option>
-                                        <option value="AC">Acre</option>
-                                        <option value="AL">Alagoas</option>
-                                        <option value="AP">Amapá</option>
-                                        <option value="AM">Amazonas</option>
-                                        <option value="BA">Bahia</option>
-                                        <option value="CE">Ceará</option>
-                                        <option value="DF">Distrito Federal</option>
-                                        <option value="ES">Espírito Santo</option>
-                                        <option value="GO">Goiás</option>
-                                        <option value="MA">Maranhão</option>
-                                        <option value="MT">Mato Grosso</option>
-                                        <option value="MS">Mato Grosso do Sul</option>
-                                        <option value="MG">Minas Gerais</option>
-                                        <option value="PA">Pará</option>
-                                        <option value="PB">Paraíba</option>
-                                        <option value="PR">Paraná</option>
-                                        <option value="PE">Pernambuco</option>
-                                        <option value="PI">Piauí</option>
-                                        <option value="RJ">Rio de Janeiro</option>
-                                        <option value="RN">Rio Grande do Norte</option>
-                                        <option value="RS">Rio Grande do Sul</option>
-                                        <option value="RO">Rondônia</option>
-                                        <option value="RR">Roraima</option>
-                                        <option value="SC">Santa Catarina</option>
-                                        <option value="SP">São Paulo</option>
-                                        <option value="SE">Sergipe</option>
-                                        <option value="TO">Tocantins</option>
-                                    </select>
+                                        <label>
+                                            <select id="estado">
+                                                <option value="">Selecione</option>
+                                                <option value="AC">Acre</option>
+                                                <option value="AL">Alagoas</option>
+                                                <option value="AP">Amapá</option>
+                                                <option value="AM">Amazonas</option>
+                                                <option value="BA">Bahia</option>
+                                                <option value="CE">Ceará</option>
+                                                <option value="DF">Distrito Federal</option>
+                                                <option value="ES">Espírito Santo</option>
+                                                <option value="GO">Goiás</option>
+                                                <option value="MA">Maranhão</option>
+                                                <option value="MT">Mato Grosso</option>
+                                                <option value="MS">Mato Grosso do Sul</option>
+                                                <option value="MG">Minas Gerais</option>
+                                                <option value="PA">Pará</option>
+                                                <option value="PB">Paraíba</option>
+                                                <option value="PR">Paraná</option>
+                                                <option value="PE">Pernambuco</option>
+                                                <option value="PI">Piauí</option>
+                                                <option value="RJ">Rio de Janeiro</option>
+                                                <option value="RN">Rio Grande do Norte</option>
+                                                <option value="RS">Rio Grande do Sul</option>
+                                                <option value="RO">Rondônia</option>
+                                                <option value="RR">Roraima</option>
+                                                <option value="SC">Santa Catarina</option>
+                                                <option value="SP">São Paulo</option>
+                                                <option value="SE">Sergipe</option>
+                                                <option value="TO">Tocantins</option>
+                                            </select>
                                 </div>
                             </div>
-                            
+
                             <div class="section-divider">Contato</div>
                             <div class="form-grid">
-                                <div class="form-group"><label for="email">E-mail</label><input type="email" id="email"></div>
-                                <div class="form-group"><label for="celular">Celular</label><input type="number" inputmode="numeric" pattern="\d*" id="celular"></div>
-                                <div class="form-group"><label for="telefone1">Telefone</label><input type="number" inputmode="numeric" pattern="\d*" id="telefone1"></div>
+                                <div class="form-group"><label for="email">E-mail</label><input type="email" id="email">
+                                </div>
+                                <div class="form-group"><label for="celular">Celular</label><input type="tel"
+                                        id="celular"></div>
+                                <div class="form-group"><label for="telefone1">Telefone</label><input type="tel"
+                                        id="telefone1"></div>
                             </div>
-                            
+
                             <div class="section-divider">Informações Médicas</div>
                             <div class="form-grid">
                                 <div class="form-group">
@@ -162,36 +185,45 @@
                                         <option value="O-">O-</option>
                                     </select>
                                 </div>
-                                <div class="form-group"><label for="peso">Peso</label><input type="number" inputmode="numeric" pattern="\d*" id="peso" placeholder="kg"></div>
-                                <div class="form-group"><label for="altura">Altura</label><input type="number" inputmode="numeric" pattern="\d*" id="altura" placeholder="m"></div>
-                                <div class="form-group full-width"><label for="alergias">Alergias</label><input type="text" id="alergias" placeholder="Ex: AAS, Dipirona, etc"></div>
+                                <div class="form-group"><label for="peso">Peso</label><input type="number" id="peso"
+                                        placeholder="kg"></div>
+                                <div class="form-group"><label for="altura">Altura</label><input type="number"
+                                        id="altura" placeholder="m"></div>
+                                <div class="form-group full-width"><label for="alergias">Alergias</label><input
+                                        type="text" id="alergias" placeholder="Ex: AAS, Dipirona, etc"></div>
                             </div>
-                            
+
                             <div class="section-divider">Informações de convênio</div>
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="convenio">Convênio</label>
                                     <input type="text" id="convenio" name="convenio">
                                 </div>
-                                <div class="form-group"><label for="plano">Plano</label><input type="text" id="plano"></div>
-                                <div class="form-group"><label for="matricula">Nº de matrícula</label><input type="number" inputmode="numeric" pattern="\d*" id="matricula"></div>
-                                <div class="form-group"><label for="validadeCarteira">Validade da Carteira</label><input type="date" id="validadeCarteira"></div>
+                                <div class="form-group"><label for="plano">Plano</label><input type="text" id="plano">
+                                </div>
+                                <div class="form-group"><label for="matricula">Nº de matrícula</label><input type="text"
+                                        id="matricula"></div>
+                                <div class="form-group"><label for="validadeCarteira">Validade da Carteira</label><input
+                                        type="date" id="validadeCarteira"></div>
                             </div>
                             <div class="form-check-group">
                                 <input type="checkbox" id="validadeIndeterminada">
                                 <label for="validadeIndeterminada">Validade Indeterminada</label>
                             </div>
-                            
+
                             <div class="section-divider">Outras Informações</div>
                             <div class="form-grid">
-                                <div class="form-group"><label for="codigoLegado">Código legado</label><input type="text" id="codigoLegado"></div>
-                                <div class="form-group full-width"><label for="observacoes">Observações</label><textarea id="observacoes" rows="4"></textarea></div>
-                                <div class="form-group full-width"><label for="anexos">Anexos do paciente</label><input type="file" id="anexos"></div>
+                                <div class="form-group"><label for="codigoLegado">Código legado</label><input
+                                        type="text" id="codigoLegado"></div>
+                                <div class="form-group full-width"><label for="observacoes">Observações</label><textarea
+                                        id="observacoes" rows="4"></textarea></div>
+                                <div class="form-group full-width"><label for="anexos">Anexos do paciente</label><input
+                                        type="file" id="anexos"></div>
                             </div>
-                            
+
                             <div class="form-actions">
                                 <button type="submit" class="btn btn-save">Salvar</button>
-                                <a href="/clinicApp/pages/pacientes/paciente.html" class="btn btn-cancel">Cancelar</a>
+                                <a href="/clinicApp/pages/pacientes/paciente - Copia.html" class="btn btn-cancel">Cancelar</a>
                             </div>
                         </form>
                     </div>
@@ -199,6 +231,7 @@
             </section>
         </div>
     </main>
-
+    <script src="/clinicApp/pages/pacientes/addPaciente/addPaciente.js"></script>
 </body>
+
 </html>

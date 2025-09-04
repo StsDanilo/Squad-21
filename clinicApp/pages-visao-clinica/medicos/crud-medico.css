@@ -1,0 +1,176 @@
+/* Estilos para o container principal do CRUD */
+.crud-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.crud-header h1 {
+    font-weight: 600;
+    color: #333;
+}
+
+.crud-header p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* Estilos do Formulário */
+.form-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex: 1;
+    min-width: 300px;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #007bff;
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 10px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Estilos da Tabela */
+.table-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    flex: 2;
+}
+
+.table-container h2 {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.table-wrapper {
+    overflow-x: auto; /* Garante que a tabela seja rolável em telas pequenas */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+
+thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+tbody tr:hover {
+    background-color: #f1f3f5;
+}
+
+td .btn-action {
+    padding: 6px 10px;
+    font-size: 14px;
+    margin-right: 5px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+td .btn-action:hover {
+    opacity: 0.85;
+}
+
+.btn-edit { background-color: #28a745; }
+.btn-delete { background-color: #dc3545; }
+
+/* Responsividade para o conteúdo do CRUD */
+@media (max-width: 992px) {
+    .crud-wrapper {
+        flex-direction: column;
+    }
+}
+
+/* força exibição do btn-primary caso haja override */
+.btn-primary {
+  display: inline-block !important;
+}
+
+/* espaçamento e alinhamento dos botões */
+.button-group {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}

@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 <td data-label="Ações">
                     <button class="btn btn-edit" data-id="${paciente.id}">Editar</button>
                     <button class="btn btn-delete" data-index="${index}">Excluir</button>
-                </td>
+                    <button class="btn btn-edit" data-index="${paciente.id}">Detalhes</button>
+                    </td>
             `;
             tbody.appendChild(row);
         });

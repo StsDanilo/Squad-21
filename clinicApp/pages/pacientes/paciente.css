@@ -27,9 +27,10 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
-    margin: 20px;
+    margin: 20px 0px;
     background-color: rgb(38, 137, 255);
     color: #fff;
+    text-decoration: none;
 }
 
 .btn-add:hover {
@@ -43,8 +44,13 @@
     border-radius: 7px;
 }
 
+thead {
+    text-align: ;
+}
+
 /* Tabela */
 #pacientes-tabela {
+    margin-top: 1.5rem;
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #ddd;

@@ -50,10 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("plano").value = pacienteParaEditar.plano;
                 document.getElementById("matricula").value = pacienteParaEditar.matricula;
                 document.getElementById("validadeCarteira").value = pacienteParaEditar.validadeCarteira;
-                document.getElementById("validadeIndeterminada").value = pacienteParaEditar.validadeCarteira;
-                document.getElementById("codigoLegado").value = pacienteParaEditar.validadeCarteira;
+                document.getElementById("validadeIndeterminada").value = pacienteParaEditar.validadeIndeterminada;
+                document.getElementById("codigoLegado").value = pacienteParaEditar.codigoLegado;
                 document.getElementById("observacoes").value = pacienteParaEditar.observacoes;
-                document.getElementById("anexos").value = pacienteParaEditar.validadeCarteira;
+                document.getElementById("anexos").value = pacienteParaEditar.anexos;
             }
         }
 
@@ -104,6 +104,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 observacoes: document.getElementById("observacoes").value,
                 anexos: document.getElementById("anexos").value,
             };
+
+            // VALIDAÇÕES =====================
+
+            // permite somente números em certos campos
+            function permitirSomenteNumeros(id) {
+                const input = document.getElementById(id);
+                if (input) {
+                    input.addEventListener("input", () => {
+                        input.value = input.value.replace(/\D/g, ""); // remove tudo que não é dígito
+                    });
+                }
+            }
+
+            // Campos que só aceitam números
+            ["telefone1", "celular", "cpf", "rg", "numDoc", "matricula"].forEach(permitirSomenteNumeros);
+            //================
 
             if (pacienteParaEditar) {
                 // Se for um paciente para editar, atualiza os dados dele

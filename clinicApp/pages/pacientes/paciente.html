@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Crud + Layout</title>
-        <link rel="stylesheet" href="/clinicApp/global.css" />
+        <link rel="stylesheet" href="../../global.css" />
         <!-- css da página -->
         <link rel="stylesheet" href="paciente.css" />
     </head>
@@ -24,60 +24,95 @@
 
                 <!-- Sidebar agora se comporta diferente em desktop vs mobile -->
                 <section class="sidebar" id="sidebar" role="navigation" aria-label="Menu principal">
-                    <ul>
-                        <li>
-                            <a href="/Squad-21-feature-pacientesV1/clinicApp/pages/home/home.html" aria-label="Página inicial">
-                                <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png" alt="Logo médico" id="logo-med" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Squad-21-feature-pacientesV1/clinicApp/pages/pacientes/paciente - Copia.html" aria-label="Pacientes">
-                                <img src="/clinicApp/assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Cadastro de usuários">
-                                <img src="/clinicApp/assets/layoutIcons/icons8-grupo-de-usuário-homem-homem-50.png" alt="Cadastro" class="icon-sidebar" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/clinicApp/pages/laudo/laudoMedico.html" aria-label="Documentos">
-                                <img src="/clinicApp/assets/layoutIcons/icons8-document.svg" alt="Documentos" class="icon-sidebar" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Configurações">
-                                <img src="/clinicApp/assets/layoutIcons/icons8-configurações.svg" alt="Configurações" class="icon-sidebar" />
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="div-sidebar">
+                        <div class="abas">
+                            <div class="logo1">
+                                <a href="#" aria-label="Página inicial">
+                                    <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png" alt="Logo médico" id="logo-med" />
+                                </a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="#" aria-label="Pacientes">
+                                        <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
+                                        <p>Pacientes</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="Pacientes">
+                                        <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="Cadastro de usuários">
+                                        <img src="../../assets/layoutIcons/icons8-grupo-de-usuário-homem-homem-50.png" alt="Cadastro" class="icon-sidebar" />
+                                        <p>Médicos</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../../pages/laudo/laudoMedico.html" aria-label="Documentos">
+                                        <img src="../../assets/layoutIcons/icons8-document.svg" alt="Documentos" class="icon-sidebar" />
+                                        <p>Laúdos</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="Documentos">
+                                        <img src="../../assets/layoutIcons/icons8-document.svg" alt="Documentos" class="icon-sidebar" />
+                                        <p>Agenda</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="Configurações">
+                                        <img src="../../assets/layoutIcons/icons8-configurações.svg" alt="Configurações" class="icon-sidebar" />
+                                        <p>Settings</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="perfil-medico-sidebar">
+                            <h3>Dr. Rafael Andrade</h3>
+                            <p>Núcleo de Especialidades</p>
+                        </div>
+                    </div>
                 </section>
 
-                <!-- Seção principal sem padding-top desnecessário -->
                 <section class="section-main">
                     <nav class="nav" role="banner">
                         <div class="div-search">
-                            <input type="text" class="search-input" placeholder="Buscar paciente" aria-label="Campo de busca" />
-                            <button class="search-button" aria-label="Buscar">
-                                <img src="/clinicApp/assets/layoutIcons/icons8-pesquisar.svg" alt="Buscar" />
+                            <input type="text" id="search-input" class="search-input" placeholder="Buscar paciente" aria-label="Campo de busca" />
+                            <select id="filter-type" class="filter-select" aria-label="Selecionar filtro">
+                                <option value="geral">Geral</option>
+                                <option value="nome">Nome</option>
+                                <option value="celular">Telefone</option>
+                                <option value="cidade">Cidade</option>
+                                <option value="estado">Estado</option>
+                                <option value="convenio">Convênio</option>
+                                <option value="cpf">CPF</option>
+                            </select>
+                            <button id="search-button" class="search-button" aria-label="Buscar">
+                                <img src="../../assets/layoutIcons/icons8-pesquisar.svg" alt="Buscar" />
                             </button>
                         </div>
                         <div>
                             <ul class="icon-lista">
                                 <li>
-                                    <a href="#" aria-label="Ajuda"><img src="/clinicApp/assets/layoutIcons/icons8-ajuda-50.png" alt="Ajuda" /></a>
+                                    <a href="#" aria-label="Ajuda"><img src="../../assets/layoutIcons/icons8-ajuda-50.png" alt="Ajuda" /></a>
                                 </li>
                                 <li>
-                                    <button aria-label="Notificações"><img src="/clinicApp/assets/layoutIcons/botao-ativar-notificacoes.png" alt="Notificações" /></button>
+                                    <button id="music" aria-label="Notificações"><img src="../../assets/layoutIcons/botao-ativar-notificacoes.png" alt="Notificações" /></button>
                                 </li>
+                                <!--button ta gerando um fundo branco, botei ID pra retirar o background-->
                                 <li>
-                                    <a href="#" aria-label="Perfil do usuário"><img src="/clinicApp/assets/layoutIcons/icons8-usuário-50.png" alt="Usuário" /></a>
+                                    <a href="#" aria-label="Perfil do usuário"><img src="../../assets/layoutIcons/icons8-usuário-50.png" alt="Usuário" /></a>
                                 </li>
                             </ul>
                         </div>
                     </nav>
 
                     <div class="conteudo">
+                        <h1>Gerenciamento de Pacientes</h1>
+                        <br /><br />
                         <a href="addPaciente/addPacient.html" id="btn-add" class="btn-add"> + Cadastrar Paciente </a>
 
                         <!-- Container para scroll horizontal da tabela -->
@@ -99,8 +134,8 @@
                 </section>
             </div>
         </main>
-        <!-- script da página -->
+
+        <script src="../../scriptGlobal.js"></script>
         <script src="paciente.js"></script>
-        <script src="/Squad-21-feature-pacientesV1/clinicApp/scriptGlobal.js"></script>
     </body>
 </html>

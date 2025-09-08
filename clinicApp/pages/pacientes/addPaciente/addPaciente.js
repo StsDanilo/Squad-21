@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("pacientes", JSON.stringify(pacientes));
 
             // Redireciona para a página de listagem
-            window.location.href = "/clinicApp/pages/pacientes/paciente - Copia.html";
+            window.location.href = "../paciente.html";
         });
     }
 });

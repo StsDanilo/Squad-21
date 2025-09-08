@@ -4,6 +4,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const urlParams = new URLSearchParams(window.location.search);
     const editId = urlParams.get("id");
 
+    function desativarFormulario() {
+        // Desativa todos os inputs, selects e textareas
+        form.querySelectorAll("input, select, textarea").forEach((el) => {
+            el.disabled = true;
+        });
+
+        // Remove o botão de submit
+        const submitBtn = form.querySelector('[type="submit"]');
+        if (submitBtn) {
+            submitBtn.remove();
+        }
+    }
+
+    // Exemplo: se a URL tiver ?mode=detalhes
+    if (window.location.search.includes("mode=detalhes")) {
+        desativarFormulario();
+    }
+
     if (form) {
         // Carrega a lista de pacientes
         let pacientes = JSON.parse(localStorage.getItem("pacientes")) || [];
@@ -76,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 cidade: document.getElementById("cidade").value,
                 estado: document.getElementById("estado").value,
                 nomeSocial: document.getElementById("nomeSocial").value,
-                cpf: document.getElementById("cpf").value,
+                cpf: document.getElementById("cpf").value.replace(/[.\-]/g, ""),
                 rg: document.getElementById("rg").value,
                 outrosDocs: document.getElementById("outrosDocs").value,
                 numDoc: document.getElementById("numDoc").value,

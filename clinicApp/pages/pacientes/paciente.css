@@ -37,15 +37,21 @@
     background-color: rgb(30, 110, 204);
 }
 
+.filter-select {
+    padding: 8px;
+    margin-left: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 .conteudo {
     margin-left: 30px;
     background-color: #fafafa;
     padding: 25px;
     border-radius: 7px;
-}
-
-thead {
-    text-align: ;
 }
 
 /* Tabela */

@@ -9,8 +9,8 @@
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #f3f0f0;
+    font-family: sans-serif;
+    background-color: #f3f0f0;
 }
 
 .icon-sidebar {
@@ -209,124 +209,122 @@ img {
 
 /* Media queries melhoradas para responsividade */
 @media (max-width: 768px) {
-  .hamburger-btn {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 22px; /* Ajuste altura */
-    background: transparent;
-    cursor: pointer;
-    padding: 0;
-    position: fixed; /* Fixo para estar sempre visível */
-    top: 24px;
-    left: 20px;
-    z-index: 1002; /* Acima de tudo */
-  }
+    .hamburger-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 22px; /* Ajuste altura */
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        position: fixed; /* Fixo para estar sempre visível */
+        top: 24px;
+        left: 20px;
+        z-index: 1002; /* Acima de tudo */
+    }
 
-  .hamburger-btn span {
-    width: 30px;
-    height: 3px;
-    background: #333;
-    border-radius: 3px;
-    transition: all 0.3s ease-in-out;
-  }
+    .hamburger-btn span {
+        width: 30px;
+        height: 3px;
+        background: #333;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
 
-  /* Animação do botão para "X" */
-  .hamburger-btn.active span:nth-child(1) {
-    transform: rotate(45deg) translate(7px, 7px);
-  }
-  .hamburger-btn.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .hamburger-btn.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-  }
-  
-  /* Sidebar no Mobile */
-  .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100vh;
-    width: 280px; /* Largura fixa no mobile */
-    min-width: 0;
-    padding: 80px 20px 20px;
-    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-    /* A MÁGICA ACONTECE AQUI */
-    transform: translateX(-100%); /* Esconde a sidebar fora da tela */
-    transition: transform 0.3s ease-in-out; /* Animação suave */
-    z-index: 1001; /* Acima do overlay */
-    overflow-y: auto; /* Permite rolar se o menu for grande */
-  }
+    /* Animação do botão para "X" */
+    .hamburger-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
 
-  .sidebar.active {
-    transform: translateX(0); /* Mostra a sidebar */
-  }
-  
-  /* Ajustes no layout interno da sidebar mobile */
-  .sidebar a {
-      flex-direction: row; /* Ícone e texto lado a lado */
-      justify-content: flex-start;
-      padding: 12px 15px;
-  }
-  .icon-sidebar {
-      margin-right: 15px; /* Espaço entre ícone e texto */
-      margin-bottom: 0;
-  }
-  .sidebar p {
-      font-size: 16px;
-  }
-  #logo-med {
-      width: 50px;
-  }
+    /* Sidebar no Mobile */
+    .sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 280px; /* Largura fixa no mobile */
+        min-width: 0;
+        padding: 80px 20px 20px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        /* A MÁGICA ACONTECE AQUI */
+        transform: translateX(-100%); /* Esconde a sidebar fora da tela */
+        transition: transform 0.3s ease-in-out; /* Animação suave */
+        z-index: 1001; /* Acima do overlay */
+        overflow-y: auto; /* Permite rolar se o menu for grande */
+    }
 
-  /* Conteúdo Principal no Mobile */
-  .section-main {
-    width: 100%;
-    margin-left: 0; /* Remove a margem do desktop */
-    padding-top: 85px; /* MUITO IMPORTANTE: Espaço para o .nav fixo */
-  }
+    .sidebar.active {
+        transform: translateX(0); /* Mostra a sidebar */
+    }
 
-  .nav {
-    position: fixed; /* Fixa o cabeçalho no topo */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999; /* Abaixo da sidebar */
-    padding: 15px 20px;
-  }
-  
-  .div-search {
-    width: 100%;
-    margin-left: 50px; /* Espaço para o botão hambúrguer */
-  }
-  .search-input {
-      width: 100%;
-  }
+    /* Ajustes no layout interno da sidebar mobile */
+    .sidebar a {
+        flex-direction: row; /* Ícone e texto lado a lado */
+        justify-content: flex-start;
+        padding: 12px 15px;
+    }
+    .icon-sidebar {
+        margin-right: 15px; /* Espaço entre ícone e texto */
+        margin-bottom: 0;
+    }
+    .sidebar p {
+        font-size: 16px;
+    }
+    #logo-med {
+        width: 50px;
+    }
 
-  /* Overlay (fundo escuro) */
-  .overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden; /* Esconde e impede cliques */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  }
+    /* Conteúdo Principal no Mobile */
+    .section-main {
+        width: 100%;
+        margin-left: 0; /* Remove a margem do desktop */
+        padding-top: 85px; /* MUITO IMPORTANTE: Espaço para o .nav fixo */
+    }
 
-  
+    .nav {
+        position: fixed; /* Fixa o cabeçalho no topo */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999; /* Abaixo da sidebar */
+        padding: 15px 20px;
+    }
+
+    .div-search {
+        width: 100%;
+        margin-left: 50px; /* Espaço para o botão hambúrguer */
+    }
+    .search-input {
+        width: 100%;
+    }
+
+    /* Overlay (fundo escuro) */
+    .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden; /* Esconde e impede cliques */
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    }
 }
 
 /* Media query para tablets */
 @media (max-width: 1024px) and (min-width: 769px) {
     .sidebar {
-        max-width:12vw;
+        max-width: 12vw;
         padding: 0.3rem;
     }
 
@@ -454,7 +452,7 @@ img {
 
     .sidebar a {
         justify-content: center;
-        flex-direction: column  ;
+        flex-direction: column;
     }
 
     .perfil-medico-sidebar {
@@ -484,12 +482,12 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%
+    width: 100%;
 }
 
 @media (max-width: 768px) {
     .hamburger-btn {
-        display: flex; 
+        display: flex;
     }
 
     .sidebar {
@@ -497,7 +495,7 @@ img {
         width: 75%;
         padding-top: 80px;
         transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out; 
+        transition: transform 0.3s ease-in-out;
         z-index: 1001;
     }
 
@@ -533,11 +531,11 @@ img {
         width: 100%;
         z-index: 998;
         padding: 15px 20px;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
     .div-search {
-       margin-left: 50px; 
+        margin-left: 50px;
     }
 
     .search-input {
@@ -558,7 +556,7 @@ img {
     .section-main {
         padding-top: 130px;
     }
-    
+
     .div-search {
         margin-left: 0;
         width: 100%;

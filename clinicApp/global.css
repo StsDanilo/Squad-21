@@ -8,34 +8,79 @@
     display: flex;
 }
 
-.icon-sidebar {
-    width: 17px;
-    padding: 10px 13px 5px 13px;
+body {
+    font-family: sans-serif;
+    background-color: #f3f0f0;
 }
 
-.icon-sidebar:hover {
-    background-color: #f1f1f1;
+.icon-sidebar {
+    width: 17px;
+    padding: 10px 15px;
+}
+
+#music {
+    background: none;
 }
 
 .sidebar {
-    padding-top: 1.25rem;
+    padding-top: 1rem;
+    padding: 1rem 0.5rem 0px 0.5rem;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    max-width: 5vw;
+    max-width: 10vw;
     max-height: 100vh;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     width: 100%;
-    box-shadow: 15px 0px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 9px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.main-contain {
+    margin: 1rem 4rem;
+}
+
+.perfil-medico-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    height: 200px;
+}
+
+.perfil-medico-sidebar p {
+    font-size: 12px;
+}
+
+.div-sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end; */
+    justify-content: space-between;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(12, 54, 70);
+    flex-wrap: wrap;
 }
 
 .sidebar ul li {
     text-align: center;
-    padding: 10px 0px;
     list-style: none;
+    border: 2px solid transparent;
+    border-radius: 3%;
+    padding: 0.7rem 0.8rem;
+}
+
+.sidebar ul li:hover {
+    border: 2px solid rgb(44, 185, 228);
+    background-color: rgb(44, 185, 228);
 }
 
 .sidebar * {
@@ -68,7 +113,8 @@ img {
 }
 
 .section-main {
-    max-width: 95vw;
+    max-width: 90vw;
+    margin-left: 10vw;
     width: 100%;
     background-color: #f3f0f0;
 }
@@ -77,6 +123,7 @@ img {
     height: 38px;
     width: 20vw;
     padding-left: 10px;
+    margin-left: 2rem;
     border-radius: 5px;
     border: 1.5px solid #ccc;
 }
@@ -96,7 +143,7 @@ img {
 .nav {
     display: flex;
     justify-content: space-between;
-    background-color: #fafafa;
+    background-color: #eaeaea;
     align-items: center;
     padding: 20px;
 }
@@ -164,123 +211,133 @@ img {
 @media (max-width: 768px) {
     .hamburger-btn {
         display: flex;
-    }
-
-    .flex {
         flex-direction: column;
+        justify-content: space-around;
+        width: 30px;
+        height: 22px; /* Ajuste altura */
+        background: transparent;
+        cursor: pointer;
+        padding: 0;
+        position: fixed; /* Fixo para estar sempre visível */
+        top: 24px;
+        left: 20px;
+        z-index: 1002; /* Acima de tudo */
     }
 
-    /* Sidebar agora fica completamente oculta por padrão em mobile */
+    .hamburger-btn span {
+        width: 30px;
+        height: 3px;
+        background: #333;
+        border-radius: 3px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Animação do botão para "X" */
+    .hamburger-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+    .hamburger-btn.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* Sidebar no Mobile */
     .sidebar {
-        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 280px; /* Largura fixa no mobile */
+        min-width: 0;
+        padding: 80px 20px 20px;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+        /* A MÁGICA ACONTECE AQUI */
+        transform: translateX(-100%); /* Esconde a sidebar fora da tela */
+        transition: transform 0.3s ease-in-out; /* Animação suave */
+        z-index: 1001; /* Acima do overlay */
+        overflow-y: auto; /* Permite rolar se o menu for grande */
     }
 
     .sidebar.active {
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        max-width: 280px;
-        width: 280px;
-        height: 100vh;
-        max-height: 100vh;
-        padding: 70px 20px 20px 20px;
-        box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.3);
-        transition: left 0.3s ease;
-        z-index: 999;
-        background-color: white;
+        transform: translateX(0); /* Mostra a sidebar */
     }
 
-    .sidebar ul {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+    /* Ajustes no layout interno da sidebar mobile */
+    .sidebar a {
+        flex-direction: row; /* Ícone e texto lado a lado */
         justify-content: flex-start;
-        align-items: center;
-        gap: 25px;
-        padding: 0;
+        padding: 12px 15px;
     }
-
-    .sidebar ul li {
-        padding: 15px;
-        width: 100%;
-        text-align: center;
-        border-radius: 8px;
-        transition: background-color 0.2s;
+    .icon-sidebar {
+        margin-right: 15px; /* Espaço entre ícone e texto */
+        margin-bottom: 0;
     }
-
-    .sidebar ul li:hover {
-        background-color: #f8f9fa;
+    .sidebar p {
+        font-size: 16px;
     }
-
-    .sidebar ul li:first-child {
-        border-bottom: 2px solid #e9ecef;
-        margin-bottom: 20px;
-        padding-bottom: 25px;
-    }
-
     #logo-med {
         width: 50px;
-        margin-bottom: 10px;
     }
 
-    .icon-sidebar {
-        width: 24px;
-        padding: 12px;
-    }
-
-    /* Removendo padding-top desnecessário e ajustando o cabeçalho */
+    /* Conteúdo Principal no Mobile */
     .section-main {
-        max-width: 100vw;
-        width: 100vw;
-        margin-left: 0;
-        padding-top: 0;
+        width: 100%;
+        margin-left: 0; /* Remove a margem do desktop */
+        padding-top: 85px; /* MUITO IMPORTANTE: Espaço para o .nav fixo */
     }
 
-    /* Ajustando o nav para não ter espaçamento extra no topo */
     .nav {
-        padding: 20px;
-        flex-wrap: wrap;
-        gap: 15px;
-        position: fixed;
-        width: 98%;
+        position: fixed; /* Fixa o cabeçalho no topo */
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999; /* Abaixo da sidebar */
+        padding: 15px 20px;
     }
 
     .div-search {
-        flex: 1;
-        min-width: 250px;
-        margin-left: 1rem;
+        width: 100%;
+        margin-left: 50px; /* Espaço para o botão hambúrguer */
     }
-
     .search-input {
-        width: 90%;
-        min-width: 200px;
-        margin-left: 2rem;
+        width: 100%;
     }
 
-    .icon-lista {
-        gap: 15px;
-        padding: 10px;
-        flex-shrink: 0;
-    }
-
-    .icon-lista li a img,
-    .icon-lista li img {
-        width: 20px;
-        padding: 4px;
+    /* Overlay (fundo escuro) */
+    .overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden; /* Esconde e impede cliques */
+        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     }
 }
 
 /* Media query para tablets */
 @media (max-width: 1024px) and (min-width: 769px) {
     .sidebar {
-        max-width: 8vw;
+        max-width: 12vw;
+        padding: 0.3rem;
+    }
+
+    .sidebar a {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
     }
 
     .search-input {
         width: 35vw;
         min-width: 250px;
+        margin-left: 2rem;
     }
 
     .icon-lista {
@@ -296,7 +353,25 @@ img {
     }
 
     .sidebar {
-        display: none;
+        /* display: none; */
+        height: 90vh;
+    }
+
+    .div-sidebar {
+        max-height: 100%;
+        width: 90%;
+        /* background-color: black; */
+    }
+
+    .abas {
+        max-height: 100%;
+        overflow-y: auto;
+        width: 100%;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .sidebar.active {
@@ -307,12 +382,13 @@ img {
         flex-direction: column;
         max-width: 300px;
         width: 300px;
-        height: 100vh;
+        height: 100%;
         max-height: 100vh;
         padding: 60px 15px 15px 15px;
         box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.3);
         z-index: 999;
         background-color: white;
+        overflow-y: scroll;
     }
 
     /* Removendo padding-top desnecessário */
@@ -368,10 +444,23 @@ img {
 @media (min-width: 769px) {
     .sidebar {
         display: flex;
-        position: static;
+        position: fixed;
         left: auto;
         transform: none;
         transition: none;
+    }
+
+    .sidebar a {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .perfil-medico-sidebar {
+        padding-bottom: 1rem;
+    }
+
+    .search-input {
+        width: 35vw;
     }
 
     .hamburger-btn {
@@ -385,6 +474,91 @@ img {
     /* Section main volta ao layout original no desktop */
     .section-main {
         max-width: 95vw;
+        width: 100%;
+    }
+}
+
+.logo1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .hamburger-btn {
+        display: flex;
+    }
+
+    .sidebar {
+        max-width: 280px;
+        width: 75%;
+        padding-top: 80px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 1001;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar a {
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: left;
+    }
+    .icon-sidebar {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+    .perfil-medico-sidebar {
+        text-align: left;
+        padding-left: 10px;
+    }
+    #logo-med {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-main {
+        margin-left: 0;
+        padding-top: 80px;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 998;
+        padding: 15px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .div-search {
+        margin-left: 50px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}
+
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+    .nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 15px;
+    }
+
+    /* ALTERAÇÃO: Aumenta o padding para o nav que agora é mais alto */
+    .section-main {
+        padding-top: 130px;
+    }
+
+    .div-search {
+        margin-left: 0;
         width: 100%;
     }
 }

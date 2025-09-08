@@ -1,0 +1,949 @@
+:root {
+    --bg-main: #f3f0f0;
+    --bg-nav: #fafafa;
+    --bg-modal: #fff;
+    --sombra-modal: 0 4px 15px rgba(0, 0, 0, 0.3);
+    --sombra-sidebar: 15px 0px 15px rgba(0, 0, 0, 0.3);
+    --cor-cinza-claro: #f1f1f1;
+    --cor-cinza-medio: #ccc;
+    --cor-cinza-escuro: #666;
+    --cor-tabela-header: #f3f0f0;
+    --cor-principal: rgb(38, 137, 255);
+    --cor-hover-principal: rgb(30, 110, 204);
+    --cor-borda-input-foco: #2e7d32;
+    --cor-fundo-botao-salvar: #2e7d32;
+    --cor-hover-salvar: #256628;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    border: none;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    font-family: Arial, sans-serif;
+}
+
+.flex {
+    display: flex;
+}
+
+.sidebar {
+    padding-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 5vw;
+    height: 100vh;
+    background-color: white;
+    box-shadow: var(--sombra-sidebar);
+}
+
+.sidebar ul {
+    list-style: none;
+    text-align: center;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+}
+
+.icon-sidebar {
+    width: 17px;
+    padding: 10px 13px 5px 13px;
+    transition: background-color 0.2s;
+}
+
+.icon-sidebar:hover {
+    background-color: var(--cor-cinza-claro);
+}
+
+.section-main {
+    width: 95vw;
+    background-color: var(--bg-main);
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-nav);
+    padding: 20px;
+}
+
+.div-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    transition: border 0.2s;
+}
+
+.div-search:hover {
+    border: 1.5px solid darkgray;
+}
+
+.search-input {
+    height: 38px;
+    width: 20vw;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1.5px solid var(--cor-cinza-medio);
+}
+
+.search-button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+}
+
+.icon-lista {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    padding: 15px;
+}
+
+.icon-lista li a img,
+img {
+    width: 22px;
+    padding: 5px;
+}
+
+.btn-add,
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-add {
+    margin: 20px;
+    background-color: var(--cor-principal);
+    color: #fff;
+}
+
+.btn-add:hover {
+    background-color: var(--cor-hover-principal);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: var(--bg-modal);
+    padding: 20px;
+    border-radius: 12px;
+    width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--sombra-modal);
+    position: relative;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    color: var(--cor-cinza-escuro);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #444;
+}
+
+.form-group input,
+.form-group select {
+    padding: 8px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid var(--cor-cinza-medio);
+    font-size: 14px;
+    outline: none;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--cor-borda-input-foco);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+.radio-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form-check-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+    padding: 0;
+    font-size: 14px;
+    color: #444;
+    min-width: unset;
+    max-width: fit-content;
+
+    .modal-actions {
+        margin-top: 20px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .btn-save {
+        background: var(--cor-fundo-botao-salvar);
+        color: #fff;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .btn-cancel {
+        background: var(--cor-cinza-medio);
+        color: #333;
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .btn-save:hover {
+        background: var(--cor-hover-salvar);
+    }
+
+    .btn-cancel:hover {
+        background: #b3b3b3;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: lightgrey;
+        color: #000;
+        transition: background-color 0.2s;
+    }
+
+    .btn-edit:hover,
+    .btn-delete:hover {
+        background-color: #d3d3d3;
+    }
+
+    /* Tabela de pacientes */
+    .paciente-table {
+        width: 95%; /* Use a largura da tela disponível */
+        margin: 20px auto;
+        border-collapse: collapse;
+        background-color: var(--bg-modal);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .paciente-table th,
+    .paciente-table td {
+        padding: 12px 15px; /* Aumentei o padding para dar mais espaço */
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        font-size: 15px; /* Ajustei o tamanho da fonte */
+        white-space: nowrap; /* Impede que o texto quebre para a próxima linha */
+        overflow: hidden;
+        text-overflow: ellipsis; /* Adiciona "..." se o texto for muito longo */
+    }
+
+    .paciente-table th {
+        background-color: var(--cor-tabela-header);
+        font-weight: bold;
+        color: #555;
+        text-transform: uppercase; /* Transforma o texto do cabeçalho em maiúsculas */
+    }
+
+    /* Deixa a tabela responsiva para dispositivos menores */
+    @media (max-width: 768px) {
+        .paciente-table {
+            display: block;
+            overflow-x: auto; /* Adiciona uma barra de rolagem horizontal */
+            white-space: nowrap;
+        }
+
+        .paciente-table thead,
+        .paciente-table tbody,
+        .paciente-table th,
+        .paciente-table td,
+        .paciente-table tr {
+            display: block;
+        }
+
+        .paciente-table tr {
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .paciente-table td {
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+            text-align: right;
+        }
+
+        .paciente-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 0;
+            width: 50%;
+            padding-left: 15px;
+            font-weight: bold;
+            text-align: left;
+        }
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+/* Container de formulário para a nova página - AGORA OCUPARÁ A LARGURA TOTAL */
+.full-page-form-container {
+    width: 95%;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: var(--bg-modal);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Divisores de Seção (Endereço, etc) */
+.section-divider {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #444;
+    margin: 35px 0 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+}
+
+/* Ajustes para a grade */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px 30px;
+}
+
+.form-grid .span-2 {
+    grid-column: span 2;
+}
+
+/* Estilos de input e select uniformes */
+.form-group input,
+.form-group select {
+    padding: 10px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-cinza-medio);
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--cor-borda-input-foco);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+/* Campos de largura total */
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Estilo para a área de texto de Observações */
+textarea {
+    resize: vertical;
+    width: 100%;
+    min-height: 100px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-cinza-medio);
+    font-size: 16px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border-color: var(--cor-borda-input-foco);
+    box-shadow: 0 0 5px rgba(46, 125, 50, 0.3);
+}
+
+/* Estilo para o campo de upload de arquivo */
+.form-group input[type="file"] {
+    background-color: var(--cor-cinza-claro);
+    border: 1px dashed var(--cor-cinza-medio);
+    padding: 10px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* Outros estilos, como h2, labels, buttons etc., que já estão na sua folha de estilo */
+.form-card h2 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #444;
+}
+
+.form-actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+
+.form-actions .btn {
+    text-decoration: none;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.form-actions .btn-save {
+    background: var(--cor-fundo-botao-salvar);
+}
+
+.form-actions .btn-cancel {
+    background: #ccc;
+    color: #333;
+}
+
+.form-actions .btn-save:hover {
+    background: #256628;
+}
+.form-actions .btn-cancel:hover {
+    background: #b3b3b3;
+}
+
+/* Estilos gerais do corpo para melhor visualização */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container principal para centralizar o conteúdo */
+.flex {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Estilos para a seção principal, para ocupar o espaço restante */
+.section-main {
+    flex-grow: 1; /* Ocupa todo o espaço restante */
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+/* Estilos para o botão de adicionar paciente */
+.btn-add {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos da tabela de pacientes */
+.paciente-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.paciente-table th,
+.paciente-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.paciente-table thead th {
+    background-color: #e9ecef;
+    font-weight: bold;
+    color: #495057;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+/* Estilizando as linhas da tabela */
+.paciente-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para os botões de ação na tabela */
+.btn-edit,
+.btn-delete {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-edit {
+    background-color: #28a745;
+}
+
+.btn-edit:hover {
+    background-color: #218838;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+}
+
+.btn-delete:hover {
+    background-color: #c82333;
+}
+
+/* Estilos para dispositivos móveis (responsividade) */
+@media (max-width: 768px) {
+    .paciente-table,
+    .paciente-table tbody,
+    .paciente-table tr,
+    .paciente-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .paciente-table thead {
+        display: none; /* Esconde o cabeçalho em telas pequenas */
+    }
+
+    .paciente-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .paciente-table td {
+        text-align: right;
+        padding-left: 50%; /* Espaço para o rótulo */
+        position: relative;
+    }
+
+    .paciente-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+        color: #555;
+    }
+}
+
+/* Estilos Gerais para o Corpo da Página */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+/* Container Flex principal (sidebar + conteúdo) */
+.flex-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Estilo da Sidebar */
+.sidebar {
+    width: 80px;
+    background-color: #fff;
+    padding: 10px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar li {
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: #e0e0e0;
+}
+
+.sidebar img {
+    width: 30px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+#logo-med {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 30px;
+}
+
+/* Área de Conteúdo Principal (que contém o Header e o main-content) */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo do Header */
+.header {
+    background-color: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+    background-color: #f8f8f8;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    padding: 5px;
+    background-color: transparent;
+    width: 200px;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.search-bar button img {
+    width: 20px;
+    height: 20px;
+}
+
+.header-icons img {
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+/* Estilos para o Conteúdo Principal (abaixo do header) */
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Estilos para o botão "Cadastrar Paciente" */
+.btn-add {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-add:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos da Tabela */
+.table-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.paciente-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.paciente-table thead th {
+    background-color: #f2f2f2;
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+}
+
+.paciente-table tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.paciente-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* As cores dos botões de ação foram mantidas como estavam na sua versão anterior */
+.btn-edit {
+    background-color: #08c547;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #087904;
+}
+
+.btn-delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-delete:hover {
+    background-color: #b31a29;
+}
+
+/* Estilos para a página de cadastro */
+.section-cadastro {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.section-cadastro h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.section-cadastro form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.section-cadastro form input[type="text"],
+.section-cadastro form input[type="tel"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.section-cadastro form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.section-cadastro form button:hover {
+    background-color: #218838;
+}
+
+.btn-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-back:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar img {
+        width: 24px;
+        height: 24px;
+    }
+
+    #logo-med {
+        width: 40px;
+        height: 40px;
+    }
+
+    .header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    .search-bar {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+
+    .header-icons img {
+        margin: 0 10px;
+    }
+
+    .paciente-table thead {
+        display: none;
+    }
+
+    .paciente-table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .paciente-table tbody td {
+        display: block;
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+        font-size: 14px;
+    }
+
+    .paciente-table tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 15px;
+        width: 45%;
+        text-align: left;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,211 @@
+.main-button button {
+    font-size: 17px;
+    background: none;
+    margin-right: 30px;
+    margin-top: 10px;
+    border: none;
+    color: #243b51;
+    padding: 20px 10px;
+    border-bottom: 2px solid transparent;
+    transition: 0.6s;
+}
+
+.main-button-border:hover {
+    /*estilo no mouseenter*/
+    border: none;
+    margin-right: 30px;
+    margin-top: 10px;
+    padding: 20px 10px;
+    background: none;
+    border-bottom: 2px solid blue;
+    color: blue;
+}
+
+.btn-add {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin: 20px 0px;
+    background-color: rgb(38, 137, 255);
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-add:hover {
+    background-color: rgb(30, 110, 204);
+}
+
+.filter-select {
+    padding: 8px;
+    margin-left: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.conteudo {
+    margin-left: 30px;
+    background-color: #fafafa;
+    padding: 25px;
+    border-radius: 7px;
+}
+
+/* Tabela */
+#pacientes-tabela {
+    margin-top: 1.5rem;
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    background-color: white;
+    font-size: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#pacientes-tabela thead {
+    background-color: #e9ecef;
+}
+
+#pacientes-tabela thead th {
+    padding: 12px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    font-weight: bold;
+}
+
+#pacientes-tabela tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+#pacientes-tabela tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+#pacientes-tabela tbody td button {
+    padding: 6px 10px;
+    font-size: 14px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#pacientes-tabela tbody td button:hover {
+    background-color: #5a6268;
+}
+
+/* Media queries melhoradas para responsividade */
+@media (max-width: 768px) {
+    /* Melhor organização do conteúdo principal em mobile */
+    .section-main-text {
+        padding: 20px;
+        padding-bottom: 0px;
+        margin-top: 10rem;
+    }
+
+    .section-main-text h1 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
+
+    .section-main-text p {
+        font-size: 16px;
+    }
+
+    .main-button {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .main-button button {
+        margin-right: 0;
+        margin-top: 5px;
+        padding: 15px 8px;
+        font-size: 15px;
+    }
+
+    .conteudo {
+        margin: 20px;
+        padding: 20px;
+    }
+
+    /* Formulário responsivo */
+    #formLaudo {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    #formLaudo fieldset {
+        width: 100%;
+    }
+
+    #formLaudo button[type="submit"] {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Tabela responsiva com scroll horizontal */
+    .table-container {
+        overflow-x: auto;
+        margin-top: 20px;
+    }
+
+    #pacientes-tabela {
+        min-width: 600px;
+        font-size: 12px;
+    }
+
+    #pacientes-tabela thead th,
+    #pacientes-tabela tbody td {
+        padding: 8px;
+        white-space: nowrap;
+    }
+}
+
+/* Media query para tablets */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .section-main-text h1 {
+        font-size: 32px;
+    }
+
+    .conteudo {
+        margin: 25px;
+    }
+}
+
+/* Media query melhorada para telas muito pequenas */
+@media (max-width: 480px) {
+    .section-main-text {
+        padding: 15px;
+    }
+
+    .section-main-text h1 {
+        font-size: 24px;
+    }
+
+    .section-main-text p {
+        font-size: 14px;
+    }
+
+    .conteudo {
+        margin: 15px;
+        padding: 15px;
+    }
+
+    #pacientes-tabela {
+        font-size: 11px;
+    }
+
+    #pacientes-tabela thead th,
+    #pacientes-tabela tbody td {
+        padding: 6px;
+    }
+}

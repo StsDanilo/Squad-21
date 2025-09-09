@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Clique no botão de busca
-    searchButton.addEventListener("onclick", () => {
+    searchButton.addEventListener("click", () => {
         atualizarLista(searchInput.value, filterType.value);
     });
 

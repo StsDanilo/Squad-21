@@ -1,564 +1,272 @@
-* {
-    padding: 0px;
-    margin: 0px;
-    border: none;
-}
+/*
+  global.css
+  This file contains the primary styles for the application layout.
+  It follows a mobile-first approach but defines desktop styles first,
+  then overrides them for tablet and mobile screens.
+*/
 
-.flex {
-    display: flex;
+/* Basic Reset & Body Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: none;
 }
 
 body {
     font-family: sans-serif;
     background-color: #f3f0f0;
+    overflow-x: hidden; /* Prevents horizontal scroll from transforms */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Main Layout Flex Container */
+.flex {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   Desktop Styles (1025px and wider)
+   ========================================================================== */
+
+.sidebar {
+    width: 260px;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    box-shadow: 9px 0px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem 0;
+    transition: width 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+#logo-med {
+    width: 30px;
+    margin-bottom: 1rem;
+    align-self: center;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    padding: 0.7rem 1.5rem; /* Consistent padding */
+    color: rgb(12, 54, 70);
+}
+
+.sidebar ul li a:hover {
+    background-color: rgb(230, 245, 250);
 }
 
 .icon-sidebar {
-    width: 17px;
-    padding: 10px 15px;
-}
-
-#music {
-    background: none;
-}
-
-.sidebar {
-    padding-top: 1rem;
-    padding: 1rem 0.5rem 0px 0.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    max-width: 10vw;
-    max-height: 100vh;
-    height: 100%;
-    background-color: white;
-    width: 100%;
-    box-shadow: 9px 0px 15px rgba(0, 0, 0, 0.3);
-}
-
-.main-contain {
-    margin: 1rem 4rem;
+    width: 20px; /* Consistent icon size */
+    height: 20px;
+    margin-right: 15px; /* Space between icon and text */
 }
 
 .perfil-medico-sidebar {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    padding: 1rem;
     text-align: center;
-    height: 200px;
+}
+
+.perfil-medico-sidebar h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .perfil-medico-sidebar p {
     font-size: 12px;
 }
 
-.div-sidebar {
-    height: 100vh;
+.section-main {
+    margin-left: 260px;
+    width: calc(100% - 260px); /* Full width minus sidebar */
+    transition: margin-left 0.3s ease;
+    background-color: #f3f0f0;
+}
+
+.nav {
     display: flex;
-    flex-direction: column;
-    /* align-items: flex-end; */
     justify-content: space-between;
-}
-
-.sidebar a {
-    display: flex;
     align-items: center;
-    text-decoration: none;
-    color: rgb(12, 54, 70);
-    flex-wrap: wrap;
-}
-
-.sidebar ul li {
-    text-align: center;
-    list-style: none;
-    border: 2px solid transparent;
-    border-radius: 3%;
-    padding: 0.7rem 0.8rem;
-}
-
-.sidebar ul li:hover {
-    border: 2px solid rgb(44, 185, 228);
-    background-color: rgb(44, 185, 228);
-}
-
-.sidebar * {
-    max-width: 100%;
-}
-
-.icon-lista {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    padding: 15px;
-}
-
-.icon-lista li a img,
-img {
-    width: 22px;
-    /* background-color: #fff; */
-    padding: 5px;
+    background-color: #eaeaea;
+    padding: 20px;
 }
 
 .div-search {
-    display: flex;
-    align-items: center;
     position: relative;
-}
-
-.div-search:hover {
-    border: 1.5px solid darkgray;
-    border-radius: 5px;
-}
-
-.section-main {
-    max-width: 90vw;
-    margin-left: 10vw;
-    width: 100%;
-    background-color: #f3f0f0;
 }
 
 .search-input {
     height: 38px;
-    width: 20vw;
+    width: 300px;
     padding-left: 10px;
-    margin-left: 2rem;
     border-radius: 5px;
     border: 1.5px solid #ccc;
 }
 
 .search-button {
     position: absolute;
-    right: 15px;
-    top: 37%;
+    right: 10px;
+    top: 50%;
     transform: translateY(-50%);
     background: none;
-    border: none;
     cursor: pointer;
-    width: 22px;
-    height: 22px;
 }
 
-.nav {
+.search-button img {
+    width: 20px;
+    height: 20px;
+}
+
+.icon-lista {
     display: flex;
-    justify-content: space-between;
-    background-color: #eaeaea;
-    align-items: center;
-    padding: 20px;
+    gap: 30px;
 }
 
-#logo-med {
-    width: 30px;
-    margin-bottom: 1rem;
+.icon-lista img {
+    width: 22px;
 }
 
-/*Interface Hamburguer*/
-
-.hamburger-btn {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 1001;
+.main-contain {
+    margin: 1rem 4rem;
 }
 
-.hamburger-btn span {
-    width: 25px;
-    height: 3px;
-    background: #333;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-.hamburger-btn.active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.hamburger-btn.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger-btn.active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
-
-/* Overlay para fechar menu ao clicar fora */
+/* Hide mobile-specific elements on desktop */
+.hamburger-btn,
 .overlay {
     display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998;
 }
 
-.overlay.active {
-    display: block;
+/* ==========================================================================
+   Tablet Styles (769px to 1024px)
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 90px;
+    }
+
+    .sidebar ul li a {
+        justify-content: center; /* Center icons */
+        padding: 1rem 0;
+    }
+
+    .sidebar p {
+        display: none; /* Hide text */
+    }
+
+    .icon-sidebar {
+        margin-right: 0; /* Remove margin when text is hidden */
+    }
+
+    .perfil-medico-sidebar {
+        display: none; /* Hide profile section */
+    }
+
+    .section-main {
+        margin-left: 90px;
+        width: calc(100% - 90px);
+    }
+
+    .main-contain {
+        margin: 1rem 2rem;
+    }
 }
 
-/* Media queries melhoradas para responsividade */
+/* ==========================================================================
+   Mobile Styles (768px and smaller)
+   ========================================================================== */
+
 @media (max-width: 768px) {
+    .sidebar {
+        width: 280px;
+        transform: translateX(-100%); /* Hide off-screen */
+        z-index: 1001; /* Above overlay */
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Show on active */
+    }
+
+    /* When sidebar is active, show text and align left */
+    .sidebar.active p {
+        display: inline;
+    }
+
+    .sidebar.active ul li a {
+        justify-content: flex-start;
+        padding: 0.7rem 1.5rem;
+    }
+
+    .sidebar.active .icon-sidebar {
+        margin-right: 15px;
+    }
+
+    .sidebar.active .perfil-medico-sidebar {
+        display: block; /* Show profile again on mobile */
+    }
+
+    .section-main {
+        margin-left: 0;
+        width: 100%;
+    }
+
     .hamburger-btn {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        width: 30px;
-        height: 22px; /* Ajuste altura */
+        width: 25px;
+        height: 25px;
         background: transparent;
         cursor: pointer;
-        padding: 0;
-        position: fixed; /* Fixo para estar sempre visível */
-        top: 24px;
+        position: fixed;
+        top: 20px;
         left: 20px;
-        z-index: 1002; /* Acima de tudo */
+        z-index: 1002; /* Above everything */
     }
 
     .hamburger-btn span {
-        width: 30px;
+        width: 100%;
         height: 3px;
         background: #333;
         border-radius: 3px;
-        transition: all 0.3s ease-in-out;
+        transition: transform 0.3s, opacity 0.3s;
     }
 
-    /* Animação do botão para "X" */
-    .hamburger-btn.active span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-    }
-    .hamburger-btn.active span:nth-child(2) {
-        opacity: 0;
-    }
-    .hamburger-btn.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-    }
-
-    /* Sidebar no Mobile */
-    .sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        width: 280px; /* Largura fixa no mobile */
-        min-width: 0;
-        padding: 80px 20px 20px;
-        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-        /* A MÁGICA ACONTECE AQUI */
-        transform: translateX(-100%); /* Esconde a sidebar fora da tela */
-        transition: transform 0.3s ease-in-out; /* Animação suave */
-        z-index: 1001; /* Acima do overlay */
-        overflow-y: auto; /* Permite rolar se o menu for grande */
-    }
-
-    .sidebar.active {
-        transform: translateX(0); /* Mostra a sidebar */
-    }
-
-    /* Ajustes no layout interno da sidebar mobile */
-    .sidebar a {
-        flex-direction: row; /* Ícone e texto lado a lado */
-        justify-content: flex-start;
-        padding: 12px 15px;
-    }
-    .icon-sidebar {
-        margin-right: 15px; /* Espaço entre ícone e texto */
-        margin-bottom: 0;
-    }
-    .sidebar p {
-        font-size: 16px;
-    }
-    #logo-med {
-        width: 50px;
-    }
-
-    /* Conteúdo Principal no Mobile */
-    .section-main {
-        width: 100%;
-        margin-left: 0; /* Remove a margem do desktop */
-        padding-top: 85px; /* MUITO IMPORTANTE: Espaço para o .nav fixo */
-    }
-
-    .nav {
-        position: fixed; /* Fixa o cabeçalho no topo */
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 999; /* Abaixo da sidebar */
-        padding: 15px 20px;
-    }
-
-    .div-search {
-        width: 100%;
-        margin-left: 50px; /* Espaço para o botão hambúrguer */
-    }
-    .search-input {
-        width: 100%;
-    }
-
-    /* Overlay (fundo escuro) */
     .overlay {
-        display: block;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000;
+        z-index: 1000; /* Below sidebar */
         opacity: 0;
-        visibility: hidden; /* Esconde e impede cliques */
-        transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-    }
-}
-
-/* Media query para tablets */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .sidebar {
-        max-width: 12vw;
-        padding: 0.3rem;
+        visibility: hidden;
+        transition: opacity 0.3s, visibility 0.3s;
     }
 
-    .sidebar a {
-        flex-wrap: wrap;
-        justify-content: center;
-        flex-direction: column;
+    .overlay.active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
     }
 
-    .search-input {
-        width: 35vw;
-        min-width: 250px;
-        margin-left: 2rem;
-    }
-
-    .icon-lista {
-        gap: 25px;
-    }
-}
-
-/* Media query melhorada para telas muito pequenas */
-@media (max-width: 480px) {
-    .hamburger-btn {
-        top: 15px;
-        left: 15px;
-    }
-
-    .sidebar {
-        /* display: none; */
-        height: 90vh;
-    }
-
-    .div-sidebar {
-        max-height: 100%;
-        width: 90%;
-        /* background-color: black; */
-    }
-
-    .abas {
-        max-height: 100%;
-        overflow-y: auto;
-        width: 100%;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .sidebar.active {
-        display: flex;
-        position: fixed;
-        top: 0;
-        left: 0;
-        flex-direction: column;
-        max-width: 300px;
-        width: 300px;
-        height: 100%;
-        max-height: 100vh;
-        padding: 60px 15px 15px 15px;
-        box-shadow: 5px 0px 15px rgba(0, 0, 0, 0.3);
-        z-index: 999;
-        background-color: white;
-        overflow-y: scroll;
-    }
-
-    /* Removendo padding-top desnecessário */
+    /* Adjust nav for mobile */
     .nav {
-        padding: 15px;
-        flex-direction: column;
-        align-items: stretch;
-        margin-top: 0;
-        width: 100%;
-    }
-
-    .div-search {
-        margin-bottom: 10px;
-        width: 90%;
-        margin-left: 1rem;
-    }
-
-    .search-input {
-        width: 100%;
-        min-width: auto;
-    }
-
-    .icon-lista {
-        justify-content: center;
-        gap: 20px;
-        padding: 10px;
-    }
-}
-
-/* Adicionando estilos para melhor acessibilidade */
-@media (prefers-reduced-motion: reduce) {
-    .hamburger-btn span,
-    .sidebar,
-    .overlay {
-        transition: none;
-    }
-}
-
-/* Estilos para foco e acessibilidade */
-.hamburger-btn:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-}
-
-.sidebar ul li a:focus,
-.icon-lista li a:focus {
-    outline: 2px solid #007bff;
-    outline-offset: 2px;
-    border-radius: 4px;
-}
-
-/* Adicionando media query para desktop - sidebar sempre visível */
-@media (min-width: 769px) {
-    .sidebar {
-        display: flex;
-        position: fixed;
-        left: auto;
-        transform: none;
-        transition: none;
-    }
-
-    .sidebar a {
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    .perfil-medico-sidebar {
-        padding-bottom: 1rem;
-    }
-
-    .search-input {
-        width: 35vw;
-    }
-
-    .hamburger-btn {
-        display: none;
-    }
-
-    .overlay {
-        display: none !important;
-    }
-
-    /* Section main volta ao layout original no desktop */
-    .section-main {
-        max-width: 95vw;
-        width: 100%;
-    }
-}
-
-.logo1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-@media (max-width: 768px) {
-    .hamburger-btn {
-        display: flex;
-    }
-
-    .sidebar {
-        max-width: 280px;
-        width: 75%;
-        padding-top: 80px;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        z-index: 1001;
-    }
-
-    .sidebar.active {
-        transform: translateX(0);
-    }
-
-    .sidebar a {
-        flex-direction: row;
-        justify-content: flex-start;
-        text-align: left;
-    }
-    .icon-sidebar {
-        margin-right: 15px;
-        margin-bottom: 0;
-    }
-    .perfil-medico-sidebar {
-        text-align: left;
-        padding-left: 10px;
-    }
-    #logo-med {
-        margin-bottom: 1.5rem;
-    }
-
-    .section-main {
-        margin-left: 0;
-        padding-top: 80px;
-    }
-
-    .nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 998;
-        padding: 15px 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .div-search {
-        margin-left: 50px;
-    }
-
-    .search-input {
-        width: 100%;
-    }
-}
-
-/* Telas muito pequenas */
-@media (max-width: 480px) {
-    .nav {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-        padding: 15px;
-    }
-
-    /* ALTERAÇÃO: Aumenta o padding para o nav que agora é mais alto */
-    .section-main {
-        padding-top: 130px;
-    }
-
-    .div-search {
-        margin-left: 0;
-        width: 100%;
+        padding-left: 60px; /* Space for hamburger button */
     }
 }

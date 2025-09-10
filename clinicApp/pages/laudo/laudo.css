@@ -241,6 +241,15 @@ fieldset input {
     .conteudo {
         margin: 25px;
     }
+
+    /* Ensure filter fields wrap correctly on tablets */
+    #formLaudo {
+        justify-content: flex-start; /* Align items to the start */
+    }
+
+    #formLaudo fieldset {
+        flex: 1 1 200px; /* Allow wrapping by giving a larger basis */
+    }
 }
 
 /* Media query melhorada para telas muito pequenas */

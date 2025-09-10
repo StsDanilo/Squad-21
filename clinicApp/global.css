@@ -1,269 +1,345 @@
-/*
-  global.css
-  This file contains the primary styles for the application layout.
-  It follows a mobile-first approach but defines desktop styles first,
-  then overrides them for tablet and mobile screens.
-*/
+/* ARQUIVO global.css COMPLETO E CORRIGIDO */
 
-/* Basic Reset & Body Styles */
+/* --- Estilos Gerais e Reset --- */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
     border: none;
+    box-sizing: border-box; /* Essencial para um bom layout */
+}
+
+.flex {
+    display: flex;
 }
 
 body {
     font-family: sans-serif;
     background-color: #f3f0f0;
-    overflow-x: hidden; /* Prevents horizontal scroll from transforms */
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-/* Main Layout Flex Container */
-.flex {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* ==========================================================================
-   Desktop Styles (1025px and wider)
-   ========================================================================== */
-
-.sidebar {
-    width: 260px;
-    background-color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    box-shadow: 9px 0px 15px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem 0;
-    transition: width 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-}
-
-#logo-med {
-    width: 45px; /* Increased size for prominence */
-    margin-bottom: 1rem;
-    align-self: center;
-    display: block; /* Ensure it can be centered */
-    margin: 0 auto 1rem auto; /* Center horizontally */
-}
-
-/* Ensure the logo's container is centered */
-.sidebar ul li:first-child {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.sidebar ul li a {
-    display: flex;
-    align-items: center;
-    padding: 0.7rem 1.5rem; /* Consistent padding */
-    color: rgb(12, 54, 70);
-}
-
-.sidebar ul li a:hover {
-    background-color: rgb(230, 245, 250);
-}
-
-/* Style for the active link in the sidebar */
-.sidebar ul li.active-link {
-    background-color: #e0f7fa; /* A subtle blue highlight */
-    font-weight: bold;
-}
-
-.sidebar ul li.active-link a {
-    color: #007bff; /* A stronger blue for the text */
-}
-
-.icon-sidebar {
-    width: 20px; /* Consistent icon size */
-    height: 20px;
-    margin-right: 15px; /* Space between icon and text */
-}
-
-.perfil-medico-sidebar {
-    padding: 1rem;
-    text-align: center;
-}
-
-.perfil-medico-sidebar h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.perfil-medico-sidebar p {
-    font-size: 12px;
-}
-
-.section-main {
-    margin-left: 260px;
-    width: calc(100% - 260px); /* Full width minus sidebar */
-    transition: margin-left 0.3s ease;
-    background-color: #f3f0f0;
-}
-
+/* --- Estilos do Header/Navegação (mantido e levemente ajustado) --- */
 .nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: #eaeaea;
+    align-items: center;
     padding: 20px;
 }
 
 .div-search {
+    display: flex;
+    align-items: center;
     position: relative;
+    border: 1.5px solid #ccc; /* Bordas padrão para a busca */
+    border-radius: 5px;
+}
+
+.div-search:focus-within { /* Adiciona borda azul quando o input está focado */
+    border-color: rgb(44, 185, 228);
+    box-shadow: 0 0 0 2px rgba(44, 185, 228, 0.2);
 }
 
 .search-input {
     height: 38px;
-    width: 300px;
+    width: 20vw;
     padding-left: 10px;
     border-radius: 5px;
-    border: 1.5px solid #ccc;
+    background: transparent; /* Remove o background para que o .div-search controle a borda */
 }
 
 .search-button {
     position: absolute;
-    right: 10px;
+    right: 5px; /* Ajustado para estar dentro da div-search */
     top: 50%;
     transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 28px; /* Aumentado para o ícone de busca */
+    height: 28px;
+}
+
+.search-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* ==========================================================================
+   ÍCONES DO CABEÇALHO - ESTILO APRIMORADO
+   ========================================================================== */
+
+/* --- 1. O contêiner da lista de ícones --- */
+.icon-lista {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Reduzi um pouco o espaço para ficar mais coeso */
+    padding: 15px;
+    align-items: center; /* Alinha todos os ícones verticalmente */
+}
+
+/* --- 2. PADRONIZAÇÃO dos links (a) e botões (button) --- */
+.icon-lista li a,
+.icon-lista li button {
+    display: flex; /* Garante que o contêiner se ajuste à imagem */
+    align-items: center;
+    justify-content: center;
+    background: none; /* Remove qualquer fundo padrão */
+    border: none; /* Remove qualquer borda padrão */
+    padding: 0; /* Remove qualquer padding padrão */
+    cursor: pointer;
+    opacity: 0.7; /* Deixa os ícones um pouco mais suaves */
+    transition: opacity 0.2s ease, transform 0.2s ease; /* Animação suave */
+}
+
+/* --- 3. EFEITO HOVER para dar feedback ao usuário --- */
+.icon-lista li a:hover,
+.icon-lista li button:hover {
+    opacity: 1; /* Opacidade total no hover */
+    transform: scale(1.1); /* Leve aumento de tamanho */
+}
+
+/* --- 4. O TAMANHO REAL da imagem do ícone --- */
+.icon-lista li img {
+    width: 28px;  /* << AUMENTADO O TAMANHO AQUI */
+    height: 28px; /* << AUMENTADO O TAMANHO AQUI */
+    display: block;
+}
+
+/* A regra #music não é mais necessária, pois já foi padronizada acima */
+
+#music {
     background: none;
     cursor: pointer;
 }
 
-.search-button img {
-    width: 20px;
-    height: 20px;
-}
+/* ==========================================================================
+   SIDEBAR E LAYOUT PRINCIPAL - REVISÃO FINAL
+   ========================================================================== */
 
-.icon-lista {
+/* --- Container principal da sidebar para flexbox --- */
+.div-sidebar {
+    height: 100vh;
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    justify-content: space-between; /* Este é crucial para empurrar o perfil para baixo */
+    align-items: center; /* Centraliza o conteúdo da sidebar se ela for estreita */
+    width: 100%; /* Garante que div-sidebar ocupe a largura total de .sidebar */
 }
 
-.icon-lista img {
-    width: 22px;
+/* --- Estilos de Base da Sidebar --- */
+.sidebar {
+    background-color: #ffffff;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: width 0.3s ease, transform 0.3s ease;
 }
 
-.main-contain {
-    margin: 1rem 4rem;
+/* --- Logo na Sidebar --- */
+.logo1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1.5rem 0; /* Espaçamento vertical generoso */
+    border-bottom: 1px solid #eee; /* Linha divisória */
 }
 
-/* Hide mobile-specific elements on desktop */
+#logo-med {
+    width: 80px; /* << MAIOR AINDA! */
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+#logo-med:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 10px rgba(44, 185, 228, 0.7)); /* Destaque mais forte */
+}
+
+/* --- Itens de Navegação --- */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%; /* Garante que a lista preencha a largura disponível */
+}
+
+.sidebar li {
+    width: 100%; /* Garante que cada item da lista preencha a largura */
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: rgb(12, 54, 70);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    white-space: nowrap;
+    border-left: 4px solid transparent;
+    transition: background-color 0.2s ease, border-left 0.2s ease, color 0.2s ease;
+}
+
+.sidebar a:hover,
+.sidebar a.active { /* Estilo para hover e item ativo */
+    background-color: #eef5fa; /* Fundo suave */
+    border-left-color: rgb(44, 185, 228); /* Borda azul destacada */
+    color: rgb(44, 185, 228); /* Texto azul para item ativo */
+    font-weight: 600; /* Negrito para destacar */
+}
+
+.icon-sidebar {
+    width: 22px; /* Tamanho do ícone */
+    height: 22px;
+    flex-shrink: 0;
+    margin-right: 15px; /* Espaço entre ícone e texto */
+}
+
+/* --- Perfil do Médico (Dr. Rafael) --- */
+.perfil-medico-sidebar {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    width: 100%;
+}
+
+.perfil-medico-sidebar h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: #333;
+}
+
+.perfil-medico-sidebar p {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+/* --- Conteúdo Principal --- */
+.section-main {
+    background-color: #f3f0f0;
+    transition: margin-left 0.3s ease;
+    padding: 1rem;
+    width: 100%; /* Garante que ocupe o espaço restante */
+}
+
+/* --- Botão Hambúrguer e Overlay (escondidos por padrão no desktop) --- */
 .hamburger-btn,
 .overlay {
     display: none;
 }
 
 /* ==========================================================================
-   Tablet Styles (769px to 1024px)
+   MEDIA QUERIES - RESPONSIVIDADE
    ========================================================================== */
 
-@media (max-width: 1024px) {
+/* --- LAYOUT DESKTOP (Telas a partir de 1025px) --- */
+@media (min-width: 1025px) {
     .sidebar {
-        width: 90px;
+        width: 260px; /* Largura expandida */
     }
-
-    .sidebar ul li a {
-        justify-content: center; /* Center icons */
-        padding: 1rem 0;
-    }
-
-    .sidebar p {
-        display: none; /* Hide text */
-    }
-
-    .icon-sidebar {
-        margin-right: 0; /* Remove margin when text is hidden */
-    }
-
-    .perfil-medico-sidebar {
-        display: none; /* Hide profile section */
-    }
-
     .section-main {
-        margin-left: 90px;
-        width: calc(100% - 90px);
-    }
-
-    .main-contain {
-        margin: 1rem 2rem;
+        margin-left: 260px; /* Empurra o conteúdo */
     }
 }
 
-/* ==========================================================================
-   Mobile Styles (768px and smaller)
-   ========================================================================== */
+/* --- LAYOUT TABLET (Telas de 769px a 1024px) --- */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 90px; /* Largura recolhida */
+    }
+    .sidebar a {
+        justify-content: center; /* Centraliza o ícone */
+        padding: 1rem 0.5rem; /* Ajusta padding */
+    }
+    .icon-sidebar {
+        margin-right: 0; /* Remove espaço ao lado do ícone */
+    }
+    .sidebar a span,
+    .perfil-medico-sidebar {
+        display: none; /* Esconde texto e perfil */
+    }
+    .logo1 {
+        padding: 1rem 0; /* Ajusta o padding do logo */
+    }
+    #logo-med {
+        width: 55px; /* Logo um pouco menor para a sidebar recolhida */
+    }
+    .section-main {
+        margin-left: 90px; /* Empurra o conteúdo */
+    }
+    .search-input {
+        width: 30vw; /* Ajusta largura da busca */
+    }
+}
 
+/* --- LAYOUT MOBILE (Telas até 768px) --- */
 @media (max-width: 768px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        padding: 15px 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
     .sidebar {
         width: 280px;
-        transform: translateX(-100%); /* Hide off-screen */
-        z-index: 1001; /* Above overlay */
+        transform: translateX(-100%);
+        padding-top: 1rem; /* O div-sidebar já tem a altura total */
+        align-items: flex-start;
     }
-
     .sidebar.active {
-        transform: translateX(0); /* Show on active */
+        transform: translateX(0);
     }
-
-    /* When sidebar is active, show text and align left */
-    .sidebar.active p {
-        display: inline;
-    }
-
-    .sidebar.active ul li a {
+    .sidebar a {
         justify-content: flex-start;
-        padding: 0.7rem 1.5rem;
     }
-
-    .sidebar.active .icon-sidebar {
+    .icon-sidebar {
         margin-right: 15px;
     }
-
-    .sidebar.active .perfil-medico-sidebar {
-        display: block; /* Show profile again on mobile */
+    .sidebar a span,
+    .perfil-medico-sidebar {
+        display: block; /* Mostra texto e perfil */
     }
-
+    .perfil-medico-sidebar {
+        text-align: left;
+        padding-left: 1.5rem; /* Alinha com o texto do menu */
+    }
+    #logo-med {
+        width: 65px; /* Logo maior quando sidebar mobile está aberta */
+    }
     .section-main {
         margin-left: 0;
-        width: 100%;
+        padding-top: 80px; /* Espaço para o Nav fixo */
     }
-
     .hamburger-btn {
         display: flex;
+        position: fixed;
+        top: 24px;
+        left: 20px;
+        z-index: 1002;
         flex-direction: column;
         justify-content: space-around;
-        width: 25px;
+        width: 30px;
         height: 25px;
         background: transparent;
         cursor: pointer;
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 1002; /* Above everything */
     }
-
     .hamburger-btn span {
         width: 100%;
         height: 3px;
-        background: #333;
+        background-color: #333;
         border-radius: 3px;
-        transition: transform 0.3s, opacity 0.3s;
+        transition: all 0.3s ease;
     }
-
+    .hamburger-btn.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .hamburger-btn.active span:nth-child(2) { opacity: 0; }
+    .hamburger-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
     .overlay {
         position: fixed;
         top: 0;
@@ -271,20 +347,34 @@ ul {
         width: 100%;
         height: 100%;
         background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1000; /* Below sidebar */
+        z-index: 999;
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.3s, visibility 0.3s;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-
     .overlay.active {
         display: block;
         opacity: 1;
         visibility: visible;
     }
-
-    /* Adjust nav for mobile */
-    .nav {
-        padding-left: 60px; /* Space for hamburger button */
+    .div-search {
+        margin-left: 40px; /* Espaço para o hambúrguer no mobile */
+        width: calc(100% - 80px); /* Ajusta largura da busca */
     }
+    .search-input {
+        width: 100%;
+    }
+}
+
+/* --- Estilos para foco e acessibilidade --- */
+.hamburger-btn:focus-visible { /* Usar focus-visible para melhor UX */
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.sidebar ul li a:focus-visible,
+.icon-lista li a:focus-visible {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+    border-radius: 4px;
 }

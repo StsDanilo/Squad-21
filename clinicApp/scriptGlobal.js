@@ -44,23 +44,6 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
-// Function to set the active link in the sidebar
-function setActiveLink() {
-    const sidebarLinks = document.querySelectorAll(".sidebar ul li a");
-    const currentPage = window.location.pathname;
-
-    sidebarLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-        // Check if the link's path is a substring of the current page's path
-        if (currentPage.includes(linkPath)) {
-            link.parentElement.classList.add("active-link");
-        }
-    });
-}
-
-// Set the active link when the page loads
-document.addEventListener("DOMContentLoaded", setActiveLink);
-
 sidebar.addEventListener("click", (e) => {
     if (e.target.tagName === "A" && window.innerWidth <= 768) {
         closeMenu();

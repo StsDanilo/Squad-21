@@ -22,8 +22,65 @@
                     <span></span>
                 </button>
 
-                <!-- Placeholder for the sidebar, which will be loaded dynamically -->
-                <div id="sidebar-placeholder"></div>
+                <!-- Sidebar agora se comporta diferente em desktop vs mobile -->
+                <section class="sidebar" id="sidebar" role="navigation" aria-label="Menu principal">
+                    <div class="div-sidebar">
+                        <div class="abas">
+                            <div class="logo1">
+                                <a href="#" aria-label="Página inicial">
+                                    <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png" alt="Logo médico" id="logo-med" />
+                                </a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="../home/home.html" aria-label="Página inicial">
+                                        <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png" alt="Logo médico" id="logo-med" />
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../pacientes/paciente.html" aria-label="Pacientes">
+                                        <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
+                                        <p>Pacientes</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dashboard/dashboard.html" aria-label="Dashboard">
+                                        <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Dashboard" class="icon-sidebar" />
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../agendamento/agendamento.html" aria-label="Médicos">
+                                        <img src="../../assets/layoutIcons/icons8-grupo-de-usuário-homem-homem-50.png" alt="Médicos" class="icon-sidebar" />
+                                        <p>Médicos</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../laudo/laudoMedico.html" aria-label="Laudos">
+                                        <img src="../../assets/layoutIcons/icons8-document.svg" alt="Laudos" class="icon-sidebar" />
+                                        <p>Laúdos</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../agendamento/agendamento.html" aria-label="Agenda">
+                                        <img src="../../assets/layoutIcons/icons8-document.svg" alt="Agenda" class="icon-sidebar" />
+                                        <p>Agenda</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="Configurações">
+                                        <img src="../../assets/layoutIcons/icons8-configurações.svg" alt="Configurações" class="icon-sidebar" />
+                                        <p>Settings</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="perfil-medico-sidebar">
+                            <h3>Dr. Rafael Andrade</h3>
+                            <p>Núcleo de Especialidades</p>
+                        </div>
+                    </div>
+                </section>
 
                 <section class="section-main">
                     <nav class="nav" role="banner">

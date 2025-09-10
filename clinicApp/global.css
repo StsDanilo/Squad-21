@@ -54,9 +54,17 @@ ul {
 }
 
 #logo-med {
-    width: 30px;
+    width: 45px; /* Increased size for prominence */
     margin-bottom: 1rem;
     align-self: center;
+    display: block; /* Ensure it can be centered */
+    margin: 0 auto 1rem auto; /* Center horizontally */
+}
+
+/* Ensure the logo's container is centered */
+.sidebar ul li:first-child {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }
 
 .sidebar ul li a {

@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 if (tipo === "geral") {
                     // Busca em todos os campos
-                    return (paciente.nome || "").toLowerCase().includes(termo) || (paciente.celular || "").toLowerCase().includes(termo) || (paciente.cidade || "").toLowerCase().includes(termo) || (paciente.estado || "").toLowerCase().includes(termo) || (paciente.convenio || "").toLowerCase().includes(termo);
+                    return (paciente.nome || "").toLowerCase().includes(termo) || (paciente.celular || "").toLowerCase().includes(termo) || (paciente.cidade || "").toLowerCase().includes(termo) || (paciente.estado || "").toLowerCase().includes(termo) || (paciente.convenio || "").toLowerCase().includes(termo) || (paciente.cpf || "").toLowerCase().includes(termo);
                 } else {
                     // Busca apenas no campo escolhido
                     const valorCampo = (paciente[tipo] || "").toString().toLowerCase();
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Clique no botão de busca
-    searchButton.addEventListener("onclick", () => {
+    searchButton.addEventListener("click", () => {
         atualizarLista(searchInput.value, filterType.value);
     });
 

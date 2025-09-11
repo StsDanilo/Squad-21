@@ -23,33 +23,57 @@
 
                 <!-- Sidebar agora se comporta diferente em desktop vs mobile -->
                 <section class="sidebar" id="sidebar" role="navigation" aria-label="Menu principal">
-                    <ul>
-                        <li>
-                            <a href="../../pages/home/home.html" aria-label="Página inicial">
-                                <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png" alt="Logo médico" id="logo-med" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../../pages/pacientes/paciente.html" aria-label="Pacientes">
-                                <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Cadastro de usuários">
-                                <img src="../../assets/layoutIcons/icons8-grupo-de-usuário-homem-homem-50.png" alt="Cadastro" class="icon-sidebar" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="../../pages/laudo/laudoMedico.html" aria-label="Documentos">
-                                <img src="../../assets/layoutIcons/icons8-document.svg" alt="Documentos" class="icon-sidebar" />
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" aria-label="Configurações">
-                                <img src="../../assets/layoutIcons/icons8-configurações.svg" alt="Configurações" class="icon-sidebar" />
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="div-sidebar">
+                        <div class="abas">
+                            <div class="logo1">
+                                <a href="../home/home.html" aria-label="Página inicial">
+                                    <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png" alt="Logo médico" id="logo-med" />
+                                </a>
+                            </div>
+                            <ul>
+                                <li>
+                                    <a href="../pacientes/paciente.html" aria-label="Pacientes">
+                                        <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
+                                        <p>Pacientes</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../dashboard/dashboard.html" aria-label="Pacientes">
+                                        <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
+                                        <p>Dashboard</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../../pages-visao-clinica/medicos/crud-medico.html" aria-label="Cadastro de usuários">
+                                        <img src="../../assets/layoutIcons/icons8-grupo-de-usuário-homem-homem-50.png" alt="Cadastro" class="icon-sidebar" />
+                                        <p>Médicos</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../laudo/laudoMedico.html" aria-label="Documentos">
+                                        <img src="../../assets/layoutIcons/icons8-document.svg" alt="Documentos" class="icon-sidebar" />
+                                        <p>Laúdos</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../agendamento/agendamento.html" aria-label="Documentos">
+                                        <img src="../../assets/layoutIcons/icons8-document.svg" alt="Documentos" class="icon-sidebar" />
+                                        <p>Agenda</p>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="../configurações/configuracoes.html" aria-label="Configurações">
+                                        <img src="../../assets/layoutIcons/icons8-configurações.svg" alt="Configurações" class="icon-sidebar" />
+                                        <p>Settings</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="perfil-medico-sidebar">
+                            <h3>Dr. Rafael Andrade</h3>
+                            <p>Núcleo de Especialidades</p>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- Seção principal sem padding-top desnecessário -->
@@ -64,78 +88,45 @@
                         <div>
                             <ul class="icon-lista">
                                 <li>
-                                    <a href="#" aria-label="Ajuda"><img src="/clinicApp/assets/layoutIcons/icons8-ajuda-50.png" alt="Ajuda" /></a>
+                                    <a href="#" aria-label="Ajuda"><img src="../../assets/layoutIcons/icons8-ajuda-50.png" alt="Ajuda" /></a>
                                 </li>
                                 <li>
-                                    <button aria-label="Notificações"><img src="/clinicApp/assets/layoutIcons/botao-ativar-notificacoes.png" alt="Notificações" /></button>
+                                    <button aria-label="Notificações"><img src="../../assets/layoutIcons/botao-ativar-notificacoes.png" alt="Notificações" /></button>
                                 </li>
                                 <li>
-                                    <a href="#" aria-label="Perfil do usuário"><img src="/clinicApp/assets/layoutIcons/icons8-usuário-50.png" alt="Usuário" /></a>
+                                    <a href="#" aria-label="Perfil do usuário"><img src="../../assets/layoutIcons/icons8-usuário-50.png" alt="Usuário" /></a>
                                 </li>
                             </ul>
                         </div>
                     </nav>
 
                     <div class="section-main-text">
-                        <h1>Gerenciamento de Laudo</h1>
+                        <h1>Laudo Médico</h1>
                         <p>Nesta seção você pode gerenciar todos os laudos gerados através da integração.</p>
-                        <div class="main-button">
-                            <button class="button main-button-border">A descrever</button>
-                            <button class="button main-button-border">Liberado</button>
-                            <button class="button main-button-border">Entregue</button>
-                        </div>
+                        <!-- <div class="main-button">
+                        <button class="button main-button-border">A descrever</button>
+                        <button class="button main-button-border">Liberado</button>
+                        <button class="button main-button-border">Entregue</button>
+                    </div> -->
+                        <div id="editor" style="border: 1px solid #ccc; padding: 1rem; border-radius: 8px"></div>
                     </div>
-                    <div class="conteudo">
-                        <form id="formLaudo">
-                            <fieldset>
-                                <label for="pedido">Pedido</label>
-                                <input type="text" id="pedido" placeholder="Pedido" required />
-                            </fieldset>
-                            <fieldset>
-                                <label for="data">Data</label>
-                                <input type="date" id="data" required />
-                            </fieldset>
-                            <fieldset>
-                                <label for="prazo">Prazo</label>
-                                <input type="date" id="prazo" required />
-                            </fieldset>
-                            <fieldset>
-                                <label for="paciente">Paciente</label>
-                                <input type="text" id="paciente" placeholder="Paciente" required />
-                            </fieldset>
-                            <fieldset>
-                                <label for="solicitante">Solicitante</label>
-                                <input type="text" id="solicitante" placeholder="Solicitante" required />
-                            </fieldset>
-                            <fieldset>
-                                <label for="classificacao">Classificação</label>
-                                <input type="text" id="classificacao" placeholder="Classificação" required />
-                            </fieldset>
-                            <button type="submit">Adicionar</button>
-                        </form>
-
-                        <!-- Container para scroll horizontal da tabela -->
-                        <div class="table-container">
-                            <table id="laudoTable">
-                                <thead>
-                                    <tr>
-                                        <th>Pedido</th>
-                                        <th>Data</th>
-                                        <th>Prazo</th>
-                                        <th>Paciente</th>
-                                        <th>Solicitante</th>
-                                        <th>Exame/Classificação</th>
-                                        <th>Ação</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <div class="conteudo"></div>
                 </section>
             </div>
         </main>
+
         <script src="laudo.js"></script>
         <script src="../../scriptGlobal.js"></script>
+        <!-- TipTap Editor -->
+        <script type="module">
+            import { Editor } from "https://esm.sh/@tiptap/core";
+            import StarterKit from "https://esm.sh/@tiptap/starter-kit";
+
+            const editor = new Editor({
+                element: document.querySelector("#editor"),
+                extensions: [StarterKit],
+                content: "<p>Olá, mundo!</p>",
+            });
+        </script>
     </body>
 </html>

@@ -5,11 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gestão de Médicos</title>
-    <link rel="stylesheet" href="/clinicApp/global.css" />
-    <link rel="stylesheet" href="./crud-medico.css" />
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="crud-medico.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/style/bootstrap.css">
 </head>
 
 <body>
@@ -26,45 +27,48 @@
             <section class="sidebar" id="sidebar" role="navigation" aria-label="Menu principal">
                 <div class="div-sidebar">
                     <div class="abas">
-                        <a href="#" aria-label="Página inicial" class="logo1">
+                        <a href="../../pages/home/home.html" aria-label="Página inicial" class="logo1">
                             <img src="https://images.vexels.com/media/users/3/142777/isolated/preview/84711206e52e0d4ff6c793cb476ea264-logotipo-medico-da-estrela-do-heartbeat.png"
                                 alt="Logo médico" id="logo-med" />
                         </a>
                         <ul>
                             <li>
-                                <a href="#" aria-label="Pacientes">
-                                    <img src="/clinicApp/assets/layoutIcons/icons8-estetoscópio-50.png" alt="Pacientes" class="icon-sidebar" />
+                                <a href="../../pages/pacientes/paciente.html" aria-label="Pacientes">
+                                    <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png"
+                                        alt="Pacientes" class="icon-sidebar" />
                                     <p>Pacientes</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="Dashboard">
-                                    <img src="https://i.imgur.com/e5p2p8D.png" alt="Dashboard" class="icon-sidebar" />
+                                <a href="../../pages/dashboard/dashboard.html" aria-label="Dashboard">
+                                    <img src="../../assets/layoutIcons/icons8-document.svg"
+                                        alt="Dashboard" class="icon-sidebar" />
                                     <p>Dashboard</p>
                                 </a>
                             </li>
-                            <li class="active-item"> <a href="#" aria-label="Médicos">
-                                    <img src="https://i.imgur.com/k2yB3a5.png" alt="Médicos" class="icon-sidebar" />
+                            <li class="active-item"> <a href="crud-medico.html" aria-label="Médicos">
+                                    <img src="../../assets/layoutIcons/icons8-estetoscópio-50.png"
+                                        alt="Médicos" class="icon-sidebar" />
                                     <p>Médicos</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="Laudos">
+                                <a href="../../pages/laudo/laudoMedico.html" aria-label="Laudos">
                                     <img src="https://i.imgur.com/Y8bXQ1E.png" alt="Laudos" class="icon-sidebar" />
                                     <p>Laudos</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="Agenda">
+                                <a href="../../pages/agendamento/agendamento.html" aria-label="Agenda">
                                     <img src="https://i.imgur.com/Q3T6sN0.png" alt="Agenda" class="icon-sidebar" />
                                     <p>Agenda</p>
                                 </a>
                             </li>
                             <li>
-                                <a href="#" aria-label="Configurações">
-                                    <img src="https://i.imgur.com/mO8PzW3.png" alt="Configurações"
-                                        class="icon-sidebar" />
-                                    <p>Settings</p>
+                                <a href="../../pages/configurações/configuracoes.html" aria-label="Configurações">
+                                    <img src="../../assets/layoutIcons/icons8-configurações.svg"
+                                        alt="Configurações" class="icon-sidebar" />
+                                    <p>Configurações</p>
                                 </a>
                             </li>
                         </ul>
@@ -82,7 +86,7 @@
                         <input type="text" class="search-input" placeholder="Buscar médico..."
                             aria-label="Campo de busca" />
                         <button class="search-button" aria-label="Buscar">
-                            <img src="https://i.imgur.com/tW5cE2r.png" alt="Buscar" />
+                            <img src="../../assets/layoutIcons/icons8-pesquisar.svg" alt="Buscar" />
                         </button>
                     </div>
                     <div>
@@ -110,80 +114,52 @@
                         <p>Adicione, visualize e gerencie os médicos da clínica.</p>
                     </div>
 
-                    <div class="crud-wrapper">
-                        <div class="form-container">
-                            <h2>Cadastrar / Editar</h2>
-                            <form id="medicoForm">
-                                <input type="hidden" id="medicoId">
-                                <div class="input-group">
-                                    <label for="nome">Nome Completo</label>
-                                    <input type="text" id="nome" placeholder="Digite o nome completo" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="crm">CRM</label>
-                                    <input type="text" id="crm" placeholder="123456-UF" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="especialidade">Especialidade</label>
-                                    <select id="especialidade" required>
-                                        <option value="" disabled selected>Selecione uma especialidade</option>
-                                        <option value="Cardiologia">Cardiologia</option>
-                                        <option value="Dermatologia">Dermatologia</option>
-                                        <option value="Ortopedia">Ortopedia</option>
-                                        <option value="Pediatria">Pediatria</option>
-                                        <option value="Psiquiatria">Psiquiatria</option>
-                                        <option value="Clínica Geral">Clínica Geral</option>
-                                    </select>
-                                </div>
-                                <div class="input-group">
-                                    <label for="telefone">Telefone</label>
-                                    <input type="tel" id="telefone" placeholder="(99) 99999-9999" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" placeholder="medico@email.com" required>
-                                </div>
-                                <div class="input-group">
-                                    <label for="status">Status</label>
-                                    <select id="status" required>
-                                        <option value="Ativo">Ativo</option>
-                                        <option value="Inativo">Inativo</option>
-                                    </select>
-                                </div>
-                                <div class="button-group">
-                                    <button type="submit" class="btn-primary">Salvar</button>
-                                    <button type="button" class="btn-secondary" id="cancelarBtn"
-                                        style="display: none;">Cancelar</button>
-                                </div>
-                            </form>
-                        </div>
+                    <div class="conteudo">
+                        <a href="../../pages-visao-clinica/medicos/addMedico/addMedico.html" id="btn-add2"
+                            class="btn-add"> + Cadastrar Paciente </a>
 
-                        <div class="table-container">
-                            <h2>Médicos Cadastrados</h2>
-                            <div class="table-wrapper">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>CRM</th>
-                                            <th>Especialidade</th>
-                                            <th>Status</th>
-                                            <th>Ações</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="medicosTabelaBody">
-                                    </tbody>
-                                </table>
+                        <div class="filtros">
+                            <div class="div-search">
+                                <input type="text" id="search-input" class="search-input" placeholder="Buscar paciente"
+                                    aria-label="Campo de busca" />
+                                <button id="search-button" class="search-button" aria-label="Buscar">
+                                    <img src="../../assets/layoutIcons/icons8-pesquisar.svg" alt="Buscar" />
+                                </button>
                             </div>
+                            <select id="filter-type" class="filter-select" aria-label="Selecionar filtro">
+                                <option value="geral">Geral</option>
+                                <option value="nome">Nome</option>
+                                <option value="celular">Telefone</option>
+                                <option value="cidade">Cidade</option>
+                                <option value="estado">Estado</option>
+                                <option value="convenio">Convênio</option>
+                                <option value="cpf">CPF</option>
+                            </select>
+
+                        </div>
+                        <!-- Container para scroll horizontal da tabela -->
+                        <div class="table-container">
+                            <table id="medicos-tabela">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Telefone</th>
+                                        <th>Cidade</th>
+                                        <th>CPF</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
                         </div>
                     </div>
-                </div>
+
             </section>
         </div>
     </main>
 
-    <script src="scriptGlobal.js"></script>
-    <script src="crud_medicos.js"></script>
+    <script src="../../scriptGlobal.js"></script>
+    <script src="crud-medico.js"></script>
 </body>
 
 </html>

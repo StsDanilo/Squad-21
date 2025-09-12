@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Foto do Paciente</title>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1 { text-align: center; }
+        form { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+        input[type="text"], input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 80%; }
+        button { cursor: pointer; color: white; font-weight: bold; border: none; padding: 10px 15px; border-radius: 5px; background-color: #17a2b8; }
+        button:hover { background-color: #138496; }
+        button:disabled { background-color: #ccc; cursor: not-allowed; }
+        #preview-container { margin-top: 1rem; text-align: center; }
+        #image-preview { max-width: 200px; max-height: 200px; border-radius: 5px; border: 1px solid #ddd; display: none; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Upload de Foto do Paciente</h1>
+        <form id="upload-form">
+            <input type="text" id="patient-id-input" placeholder="Digite o ID do paciente" required>
+            
+            <input type="file" id="photo-input" accept="image/*" required>
+            
+            <div id="preview-container">
+                <img id="image-preview" src="#" alt="Pré-visualização da imagem">
+                <p id="preview-text">Selecione uma imagem para pré-visualizar.</p>
+            </div>
+
+            <button type="submit" id="upload-button" disabled>Enviar Foto</button>
+        </form>
+    </section>
+
+    <section>
+        <h3>Resposta da API</h3>
+        <pre id="api-response">{ "message": "Aguardando upload..." }</pre>
+    </section>
+
+</body>
+</html>

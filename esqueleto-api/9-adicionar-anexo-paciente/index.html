@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Anexo ao Paciente</title>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1 { text-align: center; }
+        form { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+        .form-group { width: 90%; text-align: left; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="file"] { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 100%; box-sizing: border-box; }
+        button { cursor: pointer; color: white; font-weight: bold; border: none; padding: 12px 20px; border-radius: 5px; background-color: #28a745; font-size: 1rem; }
+        button:hover { background-color: #218838; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Adicionar Anexo ao Paciente</h1>
+        <form id="add-attachment-form">
+            <div class="form-group">
+                <label for="patient-id-input">ID do Paciente:</label>
+                <input type="text" id="patient-id-input" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="attachment-input">Selecione o Anexo:</label>
+                <input type="file" id="attachment-input" required>
+            </div>
+            
+            <button type="submit">Adicionar Anexo</button>
+        </form>
+    </section>
+
+    <section>
+        <h3>Resposta da API</h3>
+        <pre id="api-response">{ "message": "Aguardando envio de anexo..." }</pre>
+    </section>
+
+</body>
+</html>

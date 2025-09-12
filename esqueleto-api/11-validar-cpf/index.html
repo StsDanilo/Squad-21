@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de CPF</title>
+    <script src="js/script.js" defer></script>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1.5rem; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1, h3 { text-align: center; }
+        form { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+        .form-group { width: 100%; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; text-align: left; }
+        input { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 1.1rem; box-sizing: border-box; }
+        button { cursor: pointer; color: white; font-weight: bold; border: none; padding: 12px 20px; border-radius: 5px; background-color: #007bff; font-size: 1rem; margin-top: 10px; transition: background-color 0.2s; }
+        button:hover { background-color: #0056b3; }
+        /* Estilo para o botão desabilitado */
+        button:disabled { background-color: #a0a0a0; cursor: not-allowed; }
+        #validation-status { display: block; margin-top: 10px; font-weight: bold; min-height: 20px; text-align: center; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        .valid { color: #28a745; }
+        .invalid { color: #dc3545; }
+        .validating { color: #007bff; }
+    </style>
+</head>
+<body>
+    <section>
+        <h1>Validador de CPF</h1>
+        <form id="cpf-validation-form">
+            <div class="form-group">
+                <label for="cpf-input">Digite o CPF para validar:</label>
+                <input type="text" id="cpf-input" placeholder="000.000.000-00" required maxlength="14">
+                <p id="validation-status"></p>
+            </div>
+            <button type="submit" id="submit-button" disabled>Validar CPF</button>
+        </form>
+    </section>
+    <section>
+        <h3>Resposta da API</h3>
+        <pre id="api-response">{ "message": "Aguardando validação..." }</pre>
+    </section>
+</body>
+</html>

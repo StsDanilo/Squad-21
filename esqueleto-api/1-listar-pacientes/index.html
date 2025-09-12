@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Funcional da API de Pacientes</title>
+    <style>
+        /* CSS Mínimo Apenas para Organização */
+        body { font-family: sans-serif; max-width: 900px; margin: 2rem auto; display: flex; flex-direction: column; gap: 2rem; }
+        section { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; }
+        form { display: flex; flex-direction: column; gap: 0.5rem; }
+        .form-group { display: grid; grid-template-columns: 150px 1fr; gap: 0.5rem; align-items: center; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        pre { background-color: #2d2d2d; color: #90ee90; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        button { cursor: pointer; padding: 8px 12px; }
+    </style>
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+
+    <h1>Laboratório de Testes - CRUD de Pacientes</h1>
+
+    <section>
+        <h3>Cadastrar / Editar Paciente</h3>
+        <form id="patient-form">
+            <input type="hidden" id="patient-id">
+
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required data-mask="name">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required data-mask="cpf" maxlength="14">
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+             <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                 <select id="sexo" name="sexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                 </select>
+            </div>
+             <div class="form-group">
+                <label for="celular">Celular:</label>
+                <input type="tel" id="celular" name="celular" data-mask="phone" maxlength="15">
+            </div>
+
+            <div>
+                <button type="submit">Salvar Paciente</button>
+                <button type="button" id="clear-form-btn">Limpar Formulário</button>
+            </div>
+        </form>
+    </section>
+
+    <section>
+        <h3>Lista de Pacientes</h3>
+        <table id="patient-table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="patient-list">
+                </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h3>Resposta da API</h3>
+        <pre><code id="api-response">{ "message": "Aguardando requisição..." }</code></pre>
+    </section>
+
+</body>
+</html>

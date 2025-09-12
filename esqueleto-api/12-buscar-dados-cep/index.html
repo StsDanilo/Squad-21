@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Endereço por CEP</title>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; display: flex; flex-direction: column; gap: 1.5rem; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1, h3 { text-align: center; }
+        form { display: flex; gap: 1rem; align-items: center; justify-content: center; }
+        input { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 200px; }
+        button { cursor: pointer; background-color: #007bff; color: white; font-weight: bold; border: none; padding: 10px 15px; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+        #address-result { margin-top: 1.5rem; padding: 1rem; background-color: #f9f9f9; border-radius: 5px; }
+        #address-result p { margin: 8px 0; font-size: 1.1rem; }
+        #address-result span { font-weight: normal; color: #333; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Buscar Endereço por CEP</h1>
+        <form id="cep-form">
+            <input type="text" id="cep-input" placeholder="00000-000" required data-mask="cep" maxlength="9">
+            <button type="submit">Buscar Endereço</button>
+        </form>
+    </section>
+
+    <section>
+        <h3>Resultado da Busca</h3>
+        <div id="address-result">
+            <p><strong>Logradouro:</strong> <span id="logradouro">-</span></p>
+            <p><strong>Bairro:</strong> <span id="bairro">-</span></p>
+            <p><strong>Cidade:</strong> <span id="cidade">-</span></p>
+            <p><strong>Estado:</strong> <span id="estado">-</span></p>
+        </div>
+        <p id="status-message" style="text-align: center;"></p>
+    </section>
+
+</body>
+</html>

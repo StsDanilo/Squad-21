@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remoção de Anexo do Paciente</title>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1 { text-align: center; }
+        form { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
+        .form-group { width: 90%; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; box-sizing: border-box; }
+        button { cursor: pointer; color: white; font-weight: bold; border: none; padding: 12px 20px; border-radius: 5px; background-color: #dc3545; font-size: 1rem; margin-top: 10px; }
+        button:hover { background-color: #c82333; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; min-height: 100px; margin-top: 1.5rem; }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Remover Anexo do Paciente</h1>
+        <form id="remove-attachment-form">
+            <div class="form-group">
+                <label for="patient-id-input">ID do Paciente:</label>
+                <input type="text" id="patient-id-input" required>
+            </div>
+            <div class="form-group">
+                <label for="attachment-id-input">ID do Anexo a ser Removido:</label>
+                <input type="text" id="attachment-id-input" required>
+            </div>
+            <button type="submit">Remover Anexo</button>
+        </form>
+
+        <pre id="api-response">{ "message": "Aguardando IDs para remover anexo..." }</pre>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Novo Paciente</title>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 2rem auto; display: flex; flex-direction: column; gap: 2rem; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1, h3 { text-align: center; }
+        form { display: flex; flex-direction: column; gap: 1rem; }
+        .form-group { display: grid; grid-template-columns: 150px 1fr; gap: 0.5rem; align-items: center; }
+        input, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        button { cursor: pointer; background-color: #28a745; color: white; font-weight: bold; border: none; }
+        button:hover { background-color: #218838; }
+        pre { background-color: #2d2d2d; color: #90ee90; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Cadastro de Paciente</h1>
+        <form id="create-patient-form">
+            <div class="form-group">
+                <label for="nome">Nome Completo:</label>
+                <input type="text" id="nome" name="nome" required data-mask="name">
+            </div>
+            <div class="form-group">
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" name="cpf" required data-mask="cpf" maxlength="14">
+            </div>
+            <div class="form-group">
+                <label for="data_nascimento">Data de Nascimento:</label>
+                <input type="date" id="data_nascimento" name="data_nascimento" required>
+            </div>
+             <div class="form-group">
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo">
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="celular">Celular:</label>
+                <input type="tel" id="celular" name="celular" placeholder="(99) 99999-9999" data-mask="phone" maxlength="15">
+            </div>
+
+            <button type="submit">Salvar Paciente</button>
+        </form>
+    </section>
+
+    <section>
+        <h3>Resposta da API</h3>
+        <pre id="api-response">{ "message": "Aguardando envio do formulário..." }</pre>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Anexos do Paciente</title>
+
+    <script src="js/script.js" defer></script>
+
+    <style>
+        body { font-family: sans-serif; max-width: 800px; margin: 2rem auto; }
+        section { border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; }
+        h1 { text-align: center; }
+        form { display: flex; gap: 1rem; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        input { padding: 10px; border-radius: 5px; border: 1px solid #ccc; width: 250px; }
+        button { cursor: pointer; background-color: #007bff; color: white; font-weight: bold; border: none; padding: 10px 15px; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        .empty-message td { text-align: center; color: #777; }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Listar Anexos do Paciente</h1>
+        <form id="list-attachments-form">
+            <input type="text" id="patient-id-input" placeholder="Digite o ID do paciente" required>
+            <button type="submit">Listar Anexos</button>
+        </form>
+
+        <table id="attachments-table">
+            <thead>
+                <tr>
+                    <th>ID do Anexo</th>
+                    <th>Nome do Arquivo</th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody id="attachments-tbody">
+                </tbody>
+        </table>
+    </section>
+
+</body>
+</html>

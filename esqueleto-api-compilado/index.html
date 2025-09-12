@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gerenciamento de Pacientes</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f7f9; }
+        .container { display: flex; }
+        nav { width: 250px; background-color: #2c3e50; color: white; padding: 1.5rem; height: 100vh; position: fixed; }
+        nav h2 { text-align: center; margin-top: 0; border-bottom: 1px solid #4a627a; padding-bottom: 1rem; }
+        nav ul { list-style: none; padding: 0; }
+        nav li button { background: none; border: none; color: #ecf0f1; padding: 12px 15px; width: 100%; text-align: left; cursor: pointer; font-size: 1rem; border-radius: 5px; }
+        nav li button:hover, nav li button.active { background-color: #34495e; }
+        main { flex-grow: 1; margin-left: 280px; padding: 2rem; }
+        .page-section { display: none; /* Todas as seções começam escondidas */ }
+        .page-section.active { display: block; /* A seção ativa é exibida */ }
+        section { background-color: white; border: 1px solid #ccc; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; }
+        h1, h3 { text-align: center; }
+        input, select, button { padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+        button { cursor: pointer; color: white; border: none; }
+        pre { background-color: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 5px; white-space: pre-wrap; word-wrap: break-word; }
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <h2>Menu API</h2>
+            <ul>
+                <li><button class="nav-button active" data-target="section-crud">CRUD de Pacientes</button></li>
+                <li><button class="nav-button" data-target="section-upload-foto">Upload de Foto</button></li>
+                <li><button class="nav-button" data-target="section-anexos">Gerenciar Anexos</button></li>
+                <li><button class="nav-button" data-target="section-utils">Utilitários (CPF/CEP)</button></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="section-crud" class="page-section active">
+                <h1>Laboratório de Testes - CRUD de Pacientes</h1>
+                <section>
+                    <h3>Cadastrar / Editar Paciente</h3>
+                    <form id="crud-patient-form">
+                        <input type="hidden" id="crud-patient-id">
+                        <div class="form-group"><label>Nome:</label><input type="text" id="crud-nome" required data-mask="name"></div>
+                        <div class="form-group"><label>CPF:</label><input type="text" id="crud-cpf" required data-mask="cpf" maxlength="14"></div>
+                        <div class="form-group"><label>Nascimento:</label><input type="date" id="crud-data-nascimento" required></div>
+                        <div class="form-group"><label>Sexo:</label><select id="crud-sexo"><option value="masculino">Masculino</option><option value="feminino">Feminino</option><option value="outro">Outro</option></select></div>
+                        <div class="form-group"><label>Celular:</label><input type="tel" id="crud-celular" data-mask="phone" maxlength="15"></div>
+                        <div><button type="submit" style="background-color: #28a745;">Salvar</button> <button type="button" id="crud-clear-form-btn">Limpar</button></div>
+                    </form>
+                </section>
+                <section>
+                    <h3>Lista de Pacientes</h3>
+                    <table id="crud-patient-table">
+                        <thead><tr><th>Nome</th><th>CPF</th><th>Ações</th></tr></thead>
+                        <tbody id="crud-patient-list"></tbody>
+                    </table>
+                </section>
+            </section>
+
+            <section id="section-upload-foto" class="page-section">
+                <h1>Gerenciamento de Foto do Paciente</h1>
+                <section>
+                    <h3>Adicionar Foto</h3>
+                    <form id="upload-photo-form">
+                        <input type="text" id="upload-photo-id" placeholder="ID do Paciente" required>
+                        <input type="file" id="upload-photo-file" accept="image/*" required>
+                        <button type="submit" style="background-color: #17a2b8;">Enviar Foto</button>
+                    </form>
+                </section>
+                <section>
+                    <h3>Remover Foto</h3>
+                    <form id="delete-photo-form">
+                        <input type="text" id="delete-photo-id" placeholder="ID do Paciente" required>
+                        <button type="submit" style="background-color: #dc3545;">Remover Foto</button>
+                    </form>
+                </section>
+            </section>
+            
+            <section id="section-anexos" class="page-section">
+                 <h1>Gerenciamento de Anexos</h1>
+                 <section>
+                    <h3>Listar Anexos por Paciente</h3>
+                    <form id="list-attachments-form">
+                       <input type="text" id="list-attach-id" placeholder="ID do Paciente" required>
+                       <button type="submit" style="background-color: #007bff;">Listar</button>
+                    </form>
+                    <table id="attachments-table">
+                       <thead><tr><th>ID</th><th>Nome do Arquivo</th><th>URL</th></tr></thead>
+                       <tbody id="attachments-tbody"></tbody>
+                    </table>
+                 </section>
+                 <section>
+                    <h3>Adicionar Anexo</h3>
+                     <form id="add-attachment-form">
+                        <input type="text" id="add-attach-patient-id" placeholder="ID do Paciente" required>
+                        <input type="file" id="add-attach-file" required>
+                        <button type="submit" style="background-color: #28a745;">Adicionar Anexo</button>
+                    </form>
+                 </section>
+                 <section>
+                    <h3>Remover Anexo</h3>
+                     <form id="remove-attachment-form">
+                        <input type="text" id="remove-attach-patient-id" placeholder="ID do Paciente" required>
+                        <input type="text" id="remove-attach-id" placeholder="ID do Anexo" required>
+                        <button type="submit" style="background-color: #dc3545;">Remover Anexo</button>
+                    </form>
+                 </section>
+            </section>
+
+            <section id="section-utils" class="page-section">
+                <h1>Utilitários</h1>
+                <section>
+                    <h3>Validar CPF</h3>
+                    <form id="cpf-validation-form">
+                        <input type="text" id="validate-cpf-input" placeholder="Digite o CPF" required data-mask="cpf" maxlength="14">
+                        <button type="submit" style="background-color: #007bff;">Validar</button>
+                        <p id="cpf-validation-status" style="font-weight: bold; min-height: 20px;"></p>
+                    </form>
+                </section>
+                <section>
+                    <h3>Buscar Endereço por CEP</h3>
+                     <form id="cep-form">
+                        <input type="text" id="cep-input" placeholder="Digite o CEP" required data-mask="cep" maxlength="9">
+                        <button type="submit" style="background-color: #007bff;">Buscar</button>
+                    </form>
+                    <div id="address-result">
+                        <p><strong>Logradouro:</strong> <span id="logradouro">-</span></p>
+                        <p><strong>Bairro:</strong> <span id="bairro">-</span></p>
+                        <p><strong>Cidade:</strong> <span id="cidade">-</span></p>
+                        <p><strong>Estado:</strong> <span id="estado">-</span></p>
+                    </div>
+                </section>
+            </section>
+
+            <section>
+                <h3>Resposta da API</h3>
+                <pre id="api-response">{ "message": "Aguardando ação..." }</pre>
+            </section>
+        </main>
+    </div>
+    <script src="js/script.js" defer></script>
+</body>
+</html>
